@@ -1,0 +1,49 @@
+# the masthead
+main:
+  - title: "Home"
+    url: /
+  - title: "Research"
+    url: /research/
+  - title: "Professional"
+    url: /professional/
+  - title: "Projects"
+    url: /projects/
+  - title: "About"
+    url: /about/
+
+# sidebars for each section
+professional:
+  - title: "Professional"
+    children:
+      - title: the Trade Desk
+        url: /professional/tradedesk/
+      - title: Entelligent
+        url: /professional/entelligent/
+      - title: University of Colorado
+        url: /professional/teaching/
+
+research:
+  - title: "Research"
+    children:
+    - title: Network Data Analysis
+      url: /research/networks/
+    - title: Noisy Dynamics
+      url: /research/waves/
+    - title: Statistics of Entanglement
+      url: /research/qm_stats/
+    - title: Measuring Optical Entanglement
+      url: /research/hardy/
+    - title: Information Loss in Fast Optics
+      url: /research/fast_light/
+
+projects:
+  - title: "Projects"
+    children:
+      - title: "NetComp: Python network comparison"
+        url: /projects/netcomp/
+      - title: Machine Learning in AWS
+        url: /projects/aws_ml/
+      - title: Automatic Genre Classification
+        url: /projects/genre_cls/
+
+

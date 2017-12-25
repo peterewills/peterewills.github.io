@@ -1,0 +1,8 @@
+# Build settings. This is the only part you need to change.
+markdown: kramdown
+remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin : "default"
+plugins:
+  - jekyll-feed
+  - jekyll-remote-theme
+
