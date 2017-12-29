@@ -1,8 +1,6 @@
 # TODO
 
 ## Technical
-- bottom of page getting cut off.
-  - issue submitted. let's see what he says
 - Add comments to posts (but not to collections)
 
 ## Layout
@@ -10,10 +8,11 @@
 - Add social media links in footer
 
 ## Content
-- Write collections
+- Write research
+- Write projects
+- Finish writing professional
 - Post about making the website
 - Post about latex in emacs
 - Post about zenburn (?)
 
 ## Other
-- Write README.md in a non-stupid manner
