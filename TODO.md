@@ -10,9 +10,13 @@
 ## Content
 - Write research
 - Write projects
-- Finish writing professional
 - Post about making the website
 - Post about latex in emacs
-- Post about zenburn (?)
 
 ## Other
+
+	{% if page.mathjax %}
+	<script type="text/javascript" async
+	src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>
+	{% endif %}

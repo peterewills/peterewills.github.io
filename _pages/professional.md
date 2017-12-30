@@ -20,21 +20,27 @@ technical. For the bulleted version, see [my resume][1].
 ## the Trade Desk
 
 [The Trade Desk][2] is a company that runs a software platform which interprets
-user data to bid on advertising space on the web.[^fnote1] I got brought on by
-the head of the research and developement team to collaborate on exploring
-applications of nonlinear models, with a particular focus on applying deep
-learning frameworks such as TensorFlow. The opportunity is ripe for application
-of such models; the training data required for such models is often prohibitive,
-but TTD collects and processes over 7 million bids per second!
+user data to bid on advertising space on the web.[^fnote1] They process over 7
+millions bids each second, and their algorithms have a maximum latency on the
+order of milliseconds, as all the processing must happen as the webpage
+loads. They build algorithms that determine the value of advertising space based
+on user information, cookies, and the like.
 
-I'm having a lot of fun working on this project, because I get to learn so
-much. I had never had any hands-on experience in the nitty-gritty of building
-and deploying neural networks up until now, and in particular had no experience
-in the dataflow paradigm of coding that I'm learning through TensorFlow. It's
-really a whole new way to think about doing computations! To make things even
-more interesting, our entire workflow is on Amazon Web Services, from loading
-the data in S3 to querying with Athena, then building and deploying models with
-SageMaker. 
+I got brought on by the head of the research and developement team to
+collaborate on exploring applications of nonlinear models, with a particular
+focus on applying deep learning frameworks such as TensorFlow. Currently they
+mostly employ linear models, due to the simplicity of presentation and speed of
+processing. However, with the huge amount of data available, the field is ripe
+for application of more complex models. I have the enviable task of dreaming up
+and prototyping these models. I also provide the mathematical know-how to
+troubleshoot modeling and computation issues as they arise.
+
+Our primary technologies are TensorFlow and scikit-learn, with the obligatory
+smattering of bash and SQL. We containerize with Docker to make sure everything
+is reproducible. Our entire workflow is on Amazon Web Services, from loading the
+data in S3 to querying with Athena, then building and deploying models with
+SageMaker. This exposure to a full-scale industrial workflow has been invaluable
+for me.
 
 ## Entelligent
 
@@ -47,16 +53,20 @@ which is available on Bloomberg and Thompson Reuters terminals.
 
 While working with Entelligent, I provided expertise in modeling, optimization,
 and computer science. I built Entellan,[^fnote2] the Python library which is the
-technical backbone of the Smart Climate index. I loved working in the small,
+technical backbone of the Smart Climate index. I enjoyed working in the small,
 agile environment, where I got to wear many hats and take up issues directly
 with the CEO.
 
 ## University of Colorado
 
-In my time as a graduate student in the Applied Math department at CU, I worked
-almost continuously as a teaching assistant and instructor. I have taught
-classes in single- and multivariable calculus, as well as computer lab classes
-on Mathematica and Matlab. 
+In my time as a graduate student in the [Applied Math department][5] at CU, I
+worked almost continuously[^fnote3] as a teaching assistant and instructor. I
+have taught classes in single- and multivariable calculus, as well as computer
+lab classes on Mathematica and Matlab. My favorite course to teach is definitely
+multivariable calculus; I get a kick out of helping the students wrap their head
+around the kind of spatial reasoning that this work requires.
+
+
 
 [1]: /assets/docs/resume.pdf
 
@@ -70,3 +80,7 @@ on Mathematica and Matlab.
 
 [^fnote2]: As is often the case in the financial world, the code here is not
     open source.
+	
+[^fnote3]: I worked as a research assistant at NIST from Summer 2012 through
+    Spring 2013 semesters. See [this project](/research/qm_stats/) in the research
+    section.

@@ -2,26 +2,16 @@
 main:
   - title: "Home"
     url: /
+  - title: "About"
+    url: /about/
   - title: "Research"
     url: /research/
   - title: "Professional"
     url: /professional/
   - title: "Projects"
     url: /projects/
-  - title: "About"
-    url: /about/
 
 # sidebars for each section
-professional:
-  - title: "Professional"
-    children:
-      - title: the Trade Desk
-        url: /professional/tradedesk/
-      - title: Entelligent
-        url: /professional/entelligent/
-      - title: University of Colorado
-        url: /professional/teaching/
-
 research:
   - title: "Research"
     children:
@@ -33,8 +23,6 @@ research:
       url: /research/qm_stats/
     - title: Measuring Optical Entanglement
       url: /research/hardy/
-    - title: Information Loss in Fast Optics
-      url: /research/fast_light/
 
 projects:
   - title: "Projects"
@@ -45,5 +33,7 @@ projects:
         url: /projects/aws_ml/
       - title: Automatic Genre Classification
         url: /projects/genre_cls/
+      - title: Information Loss in Fast Optics
+        url: /projects/fast_light/
 
 

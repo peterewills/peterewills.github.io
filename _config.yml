@@ -1,23 +1,24 @@
 # Configs for pwills.com
 
 title: "pwills.com"
+name: "Peter Wills"
 email: peter@pwills.com
-url: "http://www.pwills.com" # the base hostname & protocol for your site, e.g. http://example.com
-
+linkedin: peterewills
+url: "http://www.pwills.com"
+repository: "peterewills/peterewills.github.io"
 
 include:
   - _pages
+  - assets
 exclude:
   - TODO.md
   - README.md
-
 
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
 
 # Build settings
-markdown: kramdown
 theme: "minimal-mistakes-jekyll"
 remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "dirt"
@@ -33,12 +34,13 @@ author:
   facebook: peter.wills.568
   email  : peter@pwills.com
 
-
+# pagination for home page
 paginate: 10 # amount of posts to show
 paginate_path: /page:num/
 
-# these show up everywhere at the moment.
+# default YAML front matter
 defaults:
+  # for all
   - scope:
       path: ""
     values:
@@ -46,12 +48,14 @@ defaults:
       mathjax: true
       author_profile: true
       title: " "
+  # for posts
   - scope:
       type: posts
     values:
       toc: true
       toc_label: "Contents"
       read_time: true
+  # for collection "research"
   - scope:
       path: ""
       type: research
@@ -63,6 +67,7 @@ defaults:
       excerpt: ""
       sidebar:
         nav: "research"
+  # for collection "projects"
   - scope:
       path: ""
       type: projects
