@@ -4,11 +4,11 @@ title: "pwills.com"
 name: "Peter Wills"
 email: peter@pwills.com
 url: "http://www.pwills.com"
-# repository: "peterewills/peterewills.github.io"
+repository: "peterewills/peterewills.github.io"
 
 include:
   - _pages
-  # - assets
+  - assets
 exclude:
   - TODO.md
   - README.md

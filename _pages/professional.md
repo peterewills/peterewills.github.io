@@ -9,13 +9,11 @@ permalink: /professional/
 
 # Professional
 
-Here I outline the gist of what I've done in various professional roles in the
-past. Order is reverse chronological, starting wtih my most recent work. This is
-not an exhaustive list of positions I've held, but rather those that have most
-significantly influenced my thinking and abilities. 
-
-I'll try and highlight the interesting parts of the job, without getting too
-technical. For the bulleted version, see [my resume][1].
+On this page I'll go through the gist of what I've done in various professional
+roles in the past. I'll try and highlight the interesting parts of the job,
+without getting too technical; for the bulleted version, see
+[my resume][1]. Order is reverse chronological, starting wtih my most recent
+work.
 
 ## the Trade Desk
 
