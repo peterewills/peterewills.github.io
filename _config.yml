@@ -3,7 +3,6 @@
 title: "pwills.com"
 name: "Peter Wills"
 email: peter@pwills.com
-linkedin: peterewills
 url: "http://www.pwills.com"
 repository: "peterewills/peterewills.github.io"
 
@@ -35,7 +34,7 @@ author:
   email  : peter@pwills.com
 
 # pagination for home page
-paginate: 10 # amount of posts to show
+paginate: 5 # number of posts to show
 paginate_path: /page:num/
 
 # default YAML front matter
