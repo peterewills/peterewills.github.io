@@ -12,11 +12,6 @@
 - Write projects
 - Post about making the website
 - Post about latex in emacs
+- Add pictures to "About Me"
 
 ## Other
-
-	{% if page.mathjax %}
-	<script type="text/javascript" async
-	src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-	</script>
-	{% endif %}

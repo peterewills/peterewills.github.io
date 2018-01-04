@@ -61,7 +61,7 @@ defaults:
       type: research
     values:
       header:
-        overlay_image: /assets/images/chalkboard.jpg
+        overlay_image: /assets/images/research/header.jpg
         caption: "Photo credit: [**Roman Mager**](https://www.unsplash.com)"
       author_profile: false
       excerpt: ""
