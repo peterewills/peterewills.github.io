@@ -64,7 +64,7 @@ the image above, the shortest path between Nicole and Sally goes through Jimmy,
 and has length 2.
 
 <img src="{{ "/assets/images/research/resistance.png" | absolute_url }}"
-width="350" align="left" hspace="20">
+width="350" hspace="20" align="left">
 
 This approach is appealing in its simplicity, but has its drawbacks. In the road
 network of New York City, for example, the shortest path between Brooklyn and
@@ -95,8 +95,49 @@ community structure of a graph.
 
 ## Anomaly Detection in Network Data
 
-Our current project focuses on techniques for comparing networks.
+Using the graph resistance isn't the only method for comparing graphs. After our
+last work I was very interested to compare the various method, to see how our
+theoretical analysis of the resistance translates into the real world and
+compares to other metrics. Since network data is very often big data, we focus
+on fast distances, where the time taken scales linearly with the size of the network.[^fnote5]
 
+I'll focus here on the particular case of anomaly detection in **dynamic
+networks**, which are networks that change in time.[^fnote3] Think of a social network
+changing in time; we might want to know when this social network undergoes
+"important" change. An example of an important change would be if two friend
+groups merged into a single indistinguishable group. In contrast, and
+unimportant change would be if a few friendships were added or removed between
+people already members of the same friend group.
+
+One of the experiments we've performed involves analysis of a [social network of
+primary school students][2] in France, recorded in 2009. The students wear RFID
+tags that record if they are in close contact, and then we can build a network
+where the vertices are students, and the edges indicate contact between two
+students.
+
+![Primary School Graphs](/assets/images/research/class_graphs.png)
+
+This graph changes over time, undergoing important structural changes during
+recess and lunch. The students form exclusive groups during class time, as they
+are restricted to their classrooms. During recess, they mainly play with
+classmates, but a significant amount of cross-class contact also occurs. In
+lunch, the class-group becomes almost entirely insignificant. But which
+distances will most effectively pick up on this difference?
+
+Our comparison shows that the resistance distance is comparable in performance
+to both the industry-standard [edit distance][3] and the cutting-edge
+[DeltaCon distance][4] in identifying these anomalous times, and frequently
+outperforma, albeit at the cost of increased variability. We also examine
+spectral methods,[^fnote4] but we find that their performance is so noisy that
+they do not effectively identify the anomalous times in the graph.
+
+![Distance Comparison](/assets/images/research/school_distances.png)
+
+A realistic anomaly detection scheme would employ an ensemble of models, and
+compare and constrast the information from each. Although I've only shown one of
+our many experiments here, the work taken in its entirety gives a thorough
+understanding of the strengths and weaknesses of a wide variety of fast distance
+techniques, and guides the user in applying them to real-world data problems.
 
 
 [^fnote1]: Mathematicians refer to networks as **graphs**, while the term
@@ -107,4 +148,22 @@ Our current project focuses on techniques for comparing networks.
     properties, see the paper
     [Effective Graph Resistance](https://www.nas.ewi.tudelft.nl/people/Piet/papers/LAA_2011_EffectiveResistance.pdf).
 
+[^fnote3]: In our upcoming paper, we also look at statistical graph matching,
+    which is comparing a graph to a population and determining the likelihood
+    that this graph is drawn from the population. We do this by examining a
+    number of random graph models, such as preferential attachment, small world,
+    and the stochastic blockmodel.
+	
+[^fnote4]: **Spectral distances** arise from analyzing the matrix representation
+    of a network, and in particular comparing the eigenvalues of these matrices.
+
+[^fnote5]: I.e., if the graph is twice as large, it takes twice as long to
+    compute the distance, rather than four or eight times as long.
+
 [1]: https://arxiv.org/abs/1707.07362
+
+[2]: http://www.sociopatterns.org/datasets/primary-school-temporal-network-data/
+
+[3]: https://en.wikipedia.org/wiki/Graph_edit_distance
+
+[4]: https://arxiv.org/abs/1304.4657
