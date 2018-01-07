@@ -38,9 +38,15 @@ author:
 paginate: 5 # number of posts to show
 paginate_path: /page:num/
 
+# # comments by disqus (can't get this to work)
+# comments:
+#   provider: "disqus"
+#   disqus:
+#     shortname: "pwills-com"
+
 # default YAML front matter
 defaults:
-  # for all
+  # all
   - scope:
       path: ""
     values:
@@ -48,41 +54,24 @@ defaults:
       mathjax: true
       author_profile: true
       title: " "
-  # for posts
+  # posts
   - scope:
       type: posts
     values:
       toc: true
       toc_label: "Contents"
       read_time: true
-  # for collection "research"
+  # portfolio
   - scope:
       path: ""
-      type: research
+      type: portfolio
     values:
-      header:
-        overlay_image: /assets/images/research/header.jpg
-        caption: "Photo credit: [**Roman Mager**](https://www.unsplash.com)"
       author_profile: false
       excerpt: ""
       sidebar:
-        nav: "research"
-  # for collection "projects"
-  - scope:
-      path: ""
-      type: projects
-    values:
-      header:
-        overlay_image: /assets/images/tools.jpg
-        caption: "Photo credit: [**Ricky Kharawala**](https://unsplash.com)"
-      author_profile: false
-      excerpt: ""
-      sidebar:
-        nav: "projects"
+        nav: "portfolio"
 
 # collections
 collections:
-  research:
-    output: true
-  projects:
+  portfolio:
     output: true

@@ -1,17 +1,18 @@
 # TODO
 
 ## Technical
-- Add comments to posts (but not to collections)
+- Icons for social media links disappeared :(
 
 ## Layout
 - Remove date from bottom of "collections" pages
 - Add social media links in footer
+- Combine "Project" and "Research" into one section
 
 ## Content
 - Write research
 - Write projects
 - Post about making the website
 - Post about latex in emacs
-- Add pictures to "About Me"
 
 ## Other
+- reorganize /assets/images/

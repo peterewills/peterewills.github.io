@@ -1,6 +1,9 @@
 ---
-permalink: /projects/netcomp/
-date: 2018-01-04 10:00 -0700
+header:
+  overlay_image: /assets/images/code.jpg
+  caption: "Photo credit: [**Marcus Spiske**](https://unsplash.com)"
+permalink: /portfolio/netcomp/
+date: 2018-01-04
 toc: true
 toc_label: "Contents"
 ---
@@ -81,7 +84,7 @@ process to build. I look forward to working on it.
 [^fnote1]: This function must be imported directly via `from netcomp.linalg
     import _eigs`
 
-[1]: /research/networks
+[1]: /portfolio/networks
 
 [2]: https://networkx.github.io/
 

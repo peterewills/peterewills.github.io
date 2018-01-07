@@ -1,11 +1,14 @@
 ---
-permalink: /research/networks/
-date: 2018-01-01 10:00 -0700
+header:
+  overlay_image: /assets/images/research/header.jpg
+  caption: "Photo credit: [**Roman Mager**](https://www.unsplash.com)"
+permalink: /portfolio/networks/
+date: 2018-01-01
 toc: true
 toc_label: "Contents"
 ---
 
-# Network Data Analysis
+# Dynamic Anomaly Detection
 
 ## Introduction to Network Data
 
@@ -39,7 +42,7 @@ each connection as a line (called an **edge**). The resulting object is called a
 **network**.[^fnote1] The table above corresponds to the network seen below:
 
 <img src="{{ "/assets/images/research/network.png" | absolute_url }}"
-width="250" align="right">
+width="33%" align="right">
 
 Looking at this network, we see that the different people have different
 "roles," so to speak. Jimmy is central, acting as a **hub**; he is friends with
@@ -64,7 +67,7 @@ the image above, the shortest path between Nicole and Sally goes through Jimmy,
 and has length 2.
 
 <img src="{{ "/assets/images/research/resistance.png" | absolute_url }}"
-width="350" hspace="20" align="left">
+width="45%" hspace="20" align="left">
 
 This approach is appealing in its simplicity, but has its drawbacks. In the road
 network of New York City, for example, the shortest path between Brooklyn and
@@ -93,7 +96,7 @@ find theoretical limits in which the resistance can detect changes in the
 community structure of a graph.
 
 
-## Anomaly Detection in Network Data
+## Dynamic Anomaly Detection 
 
 Using the graph resistance isn't the only method for comparing graphs. After our
 last work I was very interested to compare the various method, to see how our
