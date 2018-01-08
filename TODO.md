@@ -1,17 +1,17 @@
 # TODO
 
+TODO items for pwills.com.
+
 ## Technical
 - Icons for social media links disappeared :(
+  - Doesn't happen if we use local theme instead of remote
+- reduce resolution of header images (& headshot)
 
 ## Layout
-- Remove date from bottom of "collections" pages
 - Add social media links in footer
-- Combine "Project" and "Research" into one section
 
 ## Content
-- Write research
-- Write projects
-- Post about making the website
+- Work on Portfolio
 - Post about latex in emacs
 
 ## Other

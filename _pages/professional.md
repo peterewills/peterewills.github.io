@@ -9,13 +9,18 @@ permalink: /professional/
 
 # Professional
 
-On this page I'll go through the gist of what I've done in various professional
-roles in the past. I'll try and highlight the interesting parts of the job,
-without getting too technical; for the bulleted version, see
-[my resume][1]. Order is reverse chronological, starting wtih my most recent
-work.
+This goes through the various professional roles I've held in the past. I'll try
+and highlight the interesting parts of the job, without getting too
+technical. Generally I'm unable to go into the nitty-gritty of what exactly
+we're doing and how we're doing it, but I'm happy to field any questions you
+might have about the things discussed here.
+
+For the bulleted version of my professional life, see [my resume][1]. Order is
+reverse chronological, starting wtih my most recent work.
 
 ## the Trade Desk
+
+**11/2017 to present**
 
 [The Trade Desk][2] is a company that runs a software platform which interprets
 user data to bid on advertising space on the web.[^fnote1] They process over 7
@@ -29,11 +34,12 @@ collaborate on exploring applications of nonlinear models, with a particular
 focus on applying deep learning frameworks such as TensorFlow. Currently they
 mostly employ linear models, due to the simplicity of presentation and speed of
 processing. However, with the huge amount of data available, the field is ripe
-for application of more complex models. I have the enviable task of dreaming up
-and prototyping these models. I also provide the mathematical know-how to
-troubleshoot modeling and computation issues as they arise.
+for application of more complex models to capture multi-layered interactions
+between data features. I have the enviable task of dreaming up and prototyping
+these models. I also provide the mathematical know-how to troubleshoot modeling
+and computation issues as they arise.
 
-Our primary technologies are TensorFlow and scikit-learn, with the obligatory
+Our primary technologies are TensorFlow and `scikit-learn`, with the obligatory
 smattering of bash and SQL. We containerize with Docker to make sure everything
 is reproducible. Our entire workflow is on Amazon Web Services, from loading the
 data in S3 to querying with Athena, then building and deploying models with
@@ -41,6 +47,8 @@ SageMaker. This exposure to a full-scale industrial workflow has been invaluable
 for me.
 
 ## Entelligent
+
+**11/2016 to 12/2017**
 
 [Entelligent][3] works to synthesize financial and envioronmental data in a way
 that provides market insights that would otherwise be invisible. This is done by
@@ -55,7 +63,13 @@ technical backbone of the Smart Climate index. I enjoyed working in the small,
 agile environment, where I got to wear many hats and take up issues directly
 with the CEO.
 
+Although I no longer work with the company on a day-to-day basis, I still
+consult with them in order to make sure that quarterly index rebalances go
+smoothly, and to provide input on any technical projects they're undertaking.
+
 ## University of Colorado
+
+**9/2012 to present**
 
 In my time as a graduate student in the [Applied Math department][5] at CU, I
 worked almost continuously[^fnote3] as a teaching assistant and instructor. I
@@ -63,6 +77,14 @@ have taught classes in single- and multivariable calculus, as well as computer
 lab classes on Mathematica and Matlab. My favorite course to teach is definitely
 multivariable calculus; I get a kick out of helping the students wrap their head
 around the kind of spatial reasoning that this work requires.
+
+I try to use alternative class structures that encourage student participation;
+I know from experience that passive learning (i.e. listening to a lecture)
+doesn't work. In my classes the students work together while standing at a
+blackboard, which helps them stay alert and engaged. In this way, I function as
+more of a mentor or a guide than someone who is going to inject them with
+mathematical knowledge; the format helps them realize that they'r really
+teaching themselves.
 
 
 
