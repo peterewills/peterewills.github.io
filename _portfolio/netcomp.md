@@ -21,7 +21,7 @@ algorithms until they reach a high level of maturity. I decided to build
 
 ## Design Principles
 
-The two guiding principles behind the library are:
+The guiding principles behind the library are:
 
 - **Flexibility.** Graphs can be input as either dense NumPy or sparse SciPy
   arrays/matrices.

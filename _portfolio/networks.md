@@ -10,6 +10,8 @@ toc_label: "Contents"
 
 # Dynamic Anomaly Detection
 
+*(This section is an overview of material available as a preprint [on the arXiv][1].)*
+
 ## Introduction to Network Data
 
 "Data analysis" is a hugely popular thing these days, for obvious reasons. When
