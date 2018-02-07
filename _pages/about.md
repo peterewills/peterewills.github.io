@@ -22,13 +22,15 @@ spending some time pursuing other interests,[^fnote2] I began working on my
 Ph.D. in Applied Mathematics at University of Colorado. I'm currently finishing
 up my dissertation, which covers a range of topics in statistics, data
 analytics, and understanding noisy systems. For more details on all that, check
-out [my portfolio](/portfolio/), or check out [my resume][4].
+out [my portfolio](/portfolio/), or take a look at [my resume][4].
 
 I've worked with Stage 1 start-ups and well-established corporations, building
 models, establishing codebases, and providing mathematical expertise to
-developers. My mother tongue is Python, and I also speak R and Matlab. If you've
-got a data problem you want to address, or just want to know what you can get
-out of all this information you're gathering, just [drop me a line][1].
+developers. My mother tongue is Python, but I also speak R and Matlab. I have
+experience working with scikit-learn, Tensorflow, pandas, and many other popular
+data analysis and machine learning libraries. If you've got a data problem you
+want to address, or just want to know what you can get out of all this
+information you're gathering, [drop me a line][1].
 
 [^fnote2]: After graduating from Reed, I spent some time living at
 	[Great Vow Zen Monastery][3], where we followed a daily schedule of work and

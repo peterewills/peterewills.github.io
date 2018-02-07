@@ -21,18 +21,18 @@ portfolio:
   - title: "Machine Learning"
     children:
       - title: "Machine Learning on AWS"
-        url: /portfolio/ml_aws
+        url: /portfolio/coming/
       - title: "Automatic Genre Classification"
-        url: /portfolio/genre_cls
+        url: /portfolio/genre_cls/
       - title: "Statistics of Entanglement"
-        url: /portfolio/qm_stats
+        url: /portfolio/qm_stats/
 
   - title: "Physics"
     children:
       - title: "Magnetic Waves and Noise"
         url: /portfolio/waves/
       - title: "Measuring Optical Entanglement"
-        url: /portfolio/hardy/
+        url: /portfolio/coming/
       - title: "Information Loss in Fast Optics"
-        url: /portfolio/fast_light/
+        url: /portfolio/coming/
 

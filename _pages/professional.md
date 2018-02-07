@@ -9,11 +9,11 @@ permalink: /professional/
 
 # Professional
 
-This goes through the various professional roles I've held in the past. I'll try
-and highlight the interesting parts of the job, without getting too
-technical. Generally I'm unable to go into the nitty-gritty of what exactly
-we're doing and how we're doing it, but I'm happy to field any questions you
-might have about the things discussed here.
+This is a kind of extended resume, going through positions past and
+present. I'll try and highlight the interesting aspects of the work, without
+getting too technical. Generally I'm unable to go into the nitty-gritty of what
+exactly we're doing and how we're doing it, but I'm happy to field any questions
+you might have about the things discussed here.
 
 For the bulleted version of my professional life, see [my resume][1]. Order is
 reverse chronological, starting wtih my most recent work.
