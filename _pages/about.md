@@ -16,7 +16,7 @@ information. Call it what you will: data science, machine learning, or
 statistics; the modern technological world lies at the intersection of
 mathematics and computing, and that's where I like to play.
 
-I've worked with [Stage 1 start-up][5]s and [publicly traded corporations][6], building
+I've worked with [Stage 1 start-ups][5] and [publicly traded corporations][6], building
 models, establishing codebases, and providing mathematical expertise to
 developers. My mother tongue is Python, but I also speak R and Matlab. I have
 experience working with scikit-learn, Tensorflow, pandas, and many other popular
