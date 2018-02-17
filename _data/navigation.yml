@@ -44,8 +44,8 @@ portfolio:
         url: /assets/docs/resume.pdf
       - title: "Thesis (Undergraduate)"
         url: /assets/docs/thesis.pdf
-  #     - title: "Network Analysis Paper"
-  #       url: https://arxiv.org/abs/1707.07362
-  #     - title: "Magnetic Waves Paper"
-  #       url: https://journals.aps.org/prb/abstract/10.1103/PhysRevB.93.144408
+      - title: "Network Analysis Paper"
+        url: https://arxiv.org/abs/1707.07362
+      - title: "Magnetic Waves Paper"
+        url: https://journals.aps.org/prb/abstract/10.1103/PhysRevB.93.144408
 
