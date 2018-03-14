@@ -10,6 +10,8 @@ toc_label: "Contents"
 
 # NetComp: Python Network Comparison
 
+*(NetComp source code is available [on GitHub][3].)*
+
 As I worked on my research on [network data analysis][1], it became clear that
 there was a need for a Python library that implemented the analytical tools I
 was interested in. The ubiquitous [NetworkX][2] package contains quite a few

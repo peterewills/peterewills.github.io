@@ -13,42 +13,23 @@ main:
 
 # sidebar for portfolio
 portfolio:
-  - title: "Network Data Analysis"
+  - title: "Projects"
+    children:
+#      - title: "Machine Learning on AWS"
+#        url: /portfolio/coming/
+      - title: "NetComp: Python Network Comparison"
+        url: /portfolio/netcomp/
+      - title: "Automatic Genre Classification"
+        url: /portfolio/genre_cls/
+
+  - title: "Research"
     children:
       - title: "Dynamic Anomaly Detection"
         url: /portfolio/networks/
-      - title: "NetComp: Python Network Comparison"
-        url: /portfolio/netcomp/
-
-  - title: "Machine Learning"
-    children:
-      - title: "Machine Learning on AWS"
-        url: /portfolio/coming/
-      - title: "Automatic Genre Classification"
-        url: /portfolio/genre_cls/
       - title: "Statistics of Entanglement"
         url: /portfolio/qm_stats/
-
-  - title: "Physics"
-    children:
       - title: "Magnetic Waves and Noise"
         url: /portfolio/waves/
-      - title: "Measuring Optical Entanglement"
-        url: /portfolio/coming/
-      - title: "Information Loss in Fast Optics"
-        url: /portfolio/coming/
 
-  - title: "Documents"
-    children:
-      - title: "Resume"
-        url: /assets/docs/resume.pdf
-      - title: "Network Analysis Paper"
-        url: https://arxiv.org/abs/1707.07362
-      - title: "Magnetic Waves Paper"
-        url: https://journals.aps.org/prb/abstract/10.1103/PhysRevB.93.144408
-      - title: "QM Stats Paper"
-        url: https://arxiv.org/abs/1709.04078
-      - title: "Thesis (Undergraduate)"
-        url: /assets/docs/thesis.pdf
-      - title: "Genre Detection Project"
-        url: /assets/docs/genre_classification.pdf
+  - title: "Resume"
+    url: /assets/docs/resume.pdf

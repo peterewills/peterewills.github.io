@@ -11,6 +11,9 @@ toc_label: "Contents"
 
 # Automatic Genre Classification of Musical Signals
 
+*(A detailed write-up of this project can be found [here][1], and the code is
+ publicly available [on GitHub][7].)*
+
 A few years ago I designed a machine learning algorithm which performs automatic
 genre classification of musical signals. The basic idea is that if the genre of
 a piece of music has certain acoustic signatures, then a computer should be able
@@ -185,6 +188,8 @@ interpretability.
 [5]: https://terrytao.wordpress.com/2010/01/03/254a-notes-1-concentration-of-measure/
 
 [6]: https://en.wikipedia.org/wiki/Radial_basis_function_kernel
+
+[7]: https://github.com/peterewills/genre-classification
 
 [^fnote1]: Most common compression methods, such as `.mp3` and `.aac`, rely on
 	decomposing the signal into its frequency components, and removing the high
