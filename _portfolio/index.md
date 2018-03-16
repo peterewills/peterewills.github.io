@@ -8,16 +8,15 @@ date: 2018-01-07
 
 # Portfolio
 
-**Under Construction!**
+Here you'll find summaries of the major projects I've done over the years, which
+are representative of my skills and interestes. These projects span everything
+from mathematical physics to machine learning, from finance to advertising, from
+the theoretical to the practical.
 
-I've selected the major projects I've done over the years which represent my
-skills and interestes, and written up summaries here. The topics cover
-mathematical physics to machine learning, and you'll find everything from a
-Python library to research publications to fun side-projects included.
-
-The discussion here is generally non-technical; for many of the projects, a
-related publication can be found in [my resume][1]. If you're curious about
-technical details I've glossed over, feel free to [contact me][2].
+The discussion here is generally non-technical; for the research projects,
+related publications can be found in [my resume][1]. There are also links to
+documents at the top of each page, which offer more depth. If you're curious
+about technical details I've glossed over, feel free to [contact me][2].
 
 <!------------------------------- FOOTER --------------------------------->
 
