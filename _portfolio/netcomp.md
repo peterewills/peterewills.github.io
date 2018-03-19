@@ -20,6 +20,47 @@ algorithms until they reach a high level of maturity. I decided to build
 [NetComp][3] in order to bridge this gap. You can get it locally via
 
 	pip install netcomp
+	
+## Usage
+
+In this demo, we'll compare two Erdos-Renyi random graphs, and then compare an
+Erdos-Renyi graph to a planted partition graph. We expect that the distance
+between the latter pair should be greater than the distance between the former,
+as they are drawn from distinct models. We'll use graphs of size 100, and set
+the parameters for the planted partition graphso that it has the same volume as
+the Erdos-Renyi graph.
+
+	>>> import netcomp as nc
+	... import networkx as nx
+	
+	>>> G1 = nx.erdos_renyi_graph(100,0.1)
+	... G2 = nx.erdos_renyi_graph(100,0.1)
+	... G3 = nx.planted_partition_graph(2,50,0.19,0.01)
+	
+	>>> A1,A2,A3 = [nx.adjacency_matrix(G) for G in [G1,G2,G3]]
+	
+	>>> d0 = nc.lambda_dist(A1,A2,kind='laplacian_norm')
+	... d1 = nc.lambda_dist(A1,A3,kind='laplacian_norm')
+	
+	>>> print({:.03f}.format(d1/d0))
+	
+	3.548
+	
+The first principal eigenvalue of the adjacency matrix is a signature for
+two-community structure. Therefore, we expect performance to improve when we
+compare using only the first principal eigenvalue. Let's check:
+	
+	>>> d0 = nc.lambda_dist(A1,A2,kind='laplacian_norm',k=2)
+	... d1 = nc.lambda_dist(A1,A3,kind='laplacian_norm',k=2)
+	
+	>>> print({:.03f}.format(d1/d0))
+	
+	37.409
+	
+Performance increases by an order of magnitude. This sort of comparison can be
+done using the adjacency or Laplacian spectrum (set using the `kind` keyword
+argument), or via non-spectral distances. A complete list of included graph
+distances is provided below.
 
 ## Design Principles
 
