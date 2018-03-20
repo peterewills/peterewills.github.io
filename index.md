@@ -9,21 +9,21 @@ header:
   overlay_image: /assets/images/betty_bear.jpg
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 
-excerpt: "Data wrangler, pythonista, mathematician, problem solver, human being"
+excerpt: "Data wrangler, Pythonista, mathematician, problem solver, human being"
 
 intro: 
   - excerpt: "I build highly performant systems for analysis and
     optimization. My passion is building data tools that make businesses work
     better. Check out [my portfolio](/portfolio/) for more. I'm also on 
-	[LinkedIn](linkedin.com/in/peterewills) and
-    [GitHub](github.com/peterewills). I'm always looking for new opportunities,
-    so don't be shy!"
+	[LinkedIn](https://www.linkedin.com/in/peterewills) and
+    [GitHub](https://www.github.com/peterewills). I'm always interested in new
+    opportunities, so don't be shy, [drop me a line](mailto:peter@pwills.com)!"
 
 
 feature_row:
   - image_path: assets/images/ai_head.jpg
     alt: "DeskAI"
-    title: "DeskAI"
+    title: "DeskAI: Smarter User Targeting"
     excerpt: "Automated optimization of online advertising campaigns."
     url: "/portfolio/deskai/"
     btn_label: "Read More"
