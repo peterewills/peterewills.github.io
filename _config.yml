@@ -9,6 +9,8 @@ repository: "peterewills/peterewills.github.io"
 include:
   - _pages
   - assets
+  - blog
+  - index.md
 exclude:
   - TODO.md
   - README.md
