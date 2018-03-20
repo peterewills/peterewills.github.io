@@ -6,10 +6,12 @@ main:
     url: /about/
   - title: "Portfolio"
     url: /portfolio/
-  - title: "Professional"
-    url: /professional/
-  - title: "LinkedIn"
-    url: http://www.linkedin.com/in/peterewills
+  - title: "Resume"
+    url: /assets/docs/resume.pdf
+  # - title: "LinkedIn"
+  #   url: http://www.linkedin.com/in/peterewills
+  - title: "Blog"
+    url: /blog/
 
 # sidebar for portfolio
 portfolio:
@@ -37,11 +39,3 @@ portfolio:
         url: /portfolio/qm_stats/
       - title: "Magnetic Waves and Noise"
         url: /portfolio/waves/
-
-  - title: "Resume"
-    url: /assets/docs/resume.pdf
-    
-      # - title: "Dissertation"
-      #   url:
-      # - title: "Undergraduate Thesis"
-      #   url: /portfolio/docs/thesis.pdf

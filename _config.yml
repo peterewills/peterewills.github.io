@@ -1,6 +1,6 @@
 # Configs for pwills.com
 
-title: "pwills.com"
+title: "Peter Wills"
 name: "Peter Wills"
 email: peter@pwills.com
 url: "http://www.pwills.com"
@@ -20,7 +20,7 @@ plugins:
 # Build settings
 markdown: kramdown
 theme: "minimal-mistakes-jekyll"
-remote_theme: "mmistakes/minimal-mistakes"
+# remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "dirt"
   
 # settings for author profile
@@ -31,18 +31,18 @@ author:
   location: "Boulder, CO"
   github : peterewills
   linkedin: peterewills
-#  facebook: peter.wills.568
   email  : peter@pwills.com
 
-# pagination for home page
-paginate: 5 # number of posts to show
-paginate_path: /page:num/
 
 # # comments by disqus (can't get this to work)
 # comments:
 #   provider: "disqus"
 #   disqus:
 #     shortname: "pwills-com"
+
+# pagination for home page
+paginate: 5 # number of posts to show
+paginate_path: /blog/page:num/
 
 # default YAML front matter
 defaults:
