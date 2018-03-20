@@ -8,8 +8,6 @@ main:
     url: /portfolio/
   - title: "Resume"
     url: /assets/docs/resume.pdf
-  # - title: "LinkedIn"
-  #   url: http://www.linkedin.com/in/peterewills
   - title: "Blog"
     url: /blog/
 
@@ -19,6 +17,8 @@ portfolio:
     children:
 #      - title: "Machine Learning on AWS"
 #        url: /portfolio/coming/
+      - title: "Anomaly Detection in Social Networks"
+        url: /portfolio/social-networks/
       - title: "NetComp: Python Network Comparison"
         url: /portfolio/netcomp/
       - title: "Automatic Genre Classification"

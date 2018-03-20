@@ -14,6 +14,22 @@ The bulk of my time at [the Trade Desk][1] has been spent conceptualizing, testi
 and prototyping a machine learning algorithm which automates the process of
 managing an online advertising campaign.
 
+## Summary
+
+The Trade Desk uses a linear model to compute bids for online advertisement
+space auctions. Currently, professional traders adjust the coefficients of this
+model based on their intuition, knowledge, and expertise. I build a platform
+that connects this model to TensorFlow, and allows it to be automatically
+trained in mini-batches, which can be updated as the campaign progresses.
+
+We tested this approach on a campaign which posted advertisements for triathalon
+coaching. Our automated approach outperformed a campaign using their current
+optimization tool by a factor of almost two-to-one. We measure performance by
+cost per click, and overall our campaign showed a CPC of $1.63, while the
+control campaign had a CPC of $2.73.
+
+Read on for more details.
+
 ## Background
 
 Online advertising space is sold through a bidding process, which occurs as the

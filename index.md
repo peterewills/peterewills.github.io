@@ -1,5 +1,5 @@
 ---
-title: "Peter Wills"
+title: "Peter Wills, Ph.D."
 layout: splash
 permalink: /
 date: 2016-03-23T11:48:41-04:00
@@ -23,23 +23,23 @@ intro:
 feature_row:
   - image_path: assets/images/ai_head.jpg
     alt: "DeskAI"
-    title: "DeskAI: Smarter User Targeting"
+    title: "DeskAI: Smarter Online User Targeting"
     excerpt: "Automated optimization of online advertising campaigns."
     url: "/portfolio/deskai/"
     btn_label: "Read More"
     btn_class: "btn--primary"	
   - image_path: /assets/images/miles.jpg
     alt: "Music"
-    title: "Automatic Genre Classification"
+    title: "Algorithmic Musical Genre Classification"
     excerpt: "Detection of musical genre directly from the audio file."
     url: "/portfolio/genre_cls/"
     btn_label: "Read More"
     btn_class: "btn--primary"	
   - image_path: /assets/images/social_network.jpg
     alt: "Social Network"
-    title: "Social Network Anomaly Detection"
-    excerpt: "Anomaly detection in social network data."
-    url: "/portfolio/networks/"
+    title: "Anomaly Detection in Social Networks"
+    excerpt: "Anomaly detection in social network data, using the graph resistance."
+    url: "/portfolio/social-networks/"
     btn_label: "Read More"
     btn_class: "btn--primary"
 ---

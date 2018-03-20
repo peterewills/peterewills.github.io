@@ -9,10 +9,29 @@ toc: true
 toc_label: "Contents"
 ---
 
-# Automatic Genre Classification of Musical Signals
+# Algorithmic Musical Genre Classification
 
 *(A detailed write-up of this project can be found [here][1], and the code is
  publicly available [on GitHub][7].)*
+
+## Summary
+
+In this project, I construct a data pipeline which intakes raw `.wav` files, and
+then uses machine learning to predict the genre of the track. We first do a
+frequency-space transformation (similar to the Fourier transform), and then do
+randomized dimension reduction on the resulting array. Finally, we put the
+dimension-reduced signal through a naive Bayes classifier, which we train on
+about 500 sample tracks.
+
+Below is the confusion matrix for the resulting classifier. As one might expect,
+classical is pretty easy; jazz is hard. A more thorough discussion of the
+algorithm and results, including additional (less successful) approaches, can be
+found below.
+
+![Confusion Matrix](/assets/images/rand_confusion.png)
+
+
+## Introduction
 
 A few years ago I designed a machine learning algorithm which performs automatic
 genre classification of musical signals. The basic idea is that if the genre of

@@ -42,7 +42,7 @@ author:
 #   disqus:
 #     shortname: "pwills-com"
 
-# pagination for home page
+# pagination for blog page
 paginate: 5 # number of posts to show
 paginate_path: /blog/page:num/
 
@@ -55,7 +55,7 @@ defaults:
       layout: single
       mathjax: true
       author_profile: true
-      classes: wide
+      class: wide
       title: " "
       title_separator: "|"
   # posts
