@@ -7,7 +7,7 @@ header:
   overlay_color: "#000"
   overlay_filter: "0"
   overlay_image: /assets/images/betty_bear.jpg
-  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+  caption: "Sunrise at [__Betty Bear Hut__](http://www.huts.org/The_Huts/bettybear.php)"
 
 excerpt: "Data wrangler, Pythonista, mathematician, problem solver, human being"
 
