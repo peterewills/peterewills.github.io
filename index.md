@@ -49,3 +49,23 @@ feature_row:
 <div style="margin-bottom:1cm" align="center"><font size="55">Selected Projects</font></div>
 
 {% include feature_row %}
+
+<div style="margin-bottom:1cm" align="center"><font size="55">About Me</font></div>
+
+
+<img src="{{ "/assets/images/headshot.jpg" | absolute_url }}"
+width="25%" hspace="20" align="left"> 
+
+
+<img src="{{ "/assets/images/piano.jpg" | absolute_url }}"
+width="25%" hspace="20" align="right"> 
+
+I live in Boulder, Colorado, where I have the privilidge of enjoying the
+sunshine and fresh mountain air. I love riding and working on my bikes. I also
+occasionally work in computing and math. My favorite theorem is the
+[Reisz representation theorem][1]. I pay tribute to the
+[Church of Emacs][2]. For more, see [About Me](/about/).
+
+[1]: https://en.wikipedia.org/wiki/Riesz_representation_theorem
+
+[2]: https://www.gnu.org/fun/jokes/gospel.html
