@@ -60,11 +60,15 @@ width="25%" hspace="20" align="left">
 <img src="{{ "/assets/images/piano.jpg" | absolute_url }}"
 width="25%" hspace="20" align="right"> 
 
-I live in Boulder, Colorado, where I have the privilidge of enjoying the
+I live in Boulder, Colorado, where I have the privilege of enjoying the
 sunshine and fresh mountain air. I love riding and working on my bikes. I also
 occasionally work in computing and math. My favorite theorem is the
 [Reisz representation theorem][1]. I pay tribute to the
-[Church of Emacs][2]. For more, see [About Me](/about/).
+[Church of Emacs][2]. 
+
+<div style="margin-top:1 cm" align="center">For more, see <a href="{{ "/about/" | absolute_url }}">About Me.</a></div>
+
+
 
 [1]: https://en.wikipedia.org/wiki/Riesz_representation_theorem
 

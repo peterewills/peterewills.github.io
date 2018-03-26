@@ -9,7 +9,7 @@ date: 2018-01-07
 # Portfolio
 
 Here you'll find summaries of the major projects I've done over the years, which
-are representative of my skills and interestes. These projects span everything
+are representative of my skills and interests. These projects span everything
 from mathematical physics to machine learning, from finance to advertising, from
 the theoretical to the practical.
 
