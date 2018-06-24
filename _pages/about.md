@@ -25,14 +25,13 @@ data analysis and machine learning libraries.
 I have a bachelors degree in Physics from Reed College, where I did
 [my thesis][2] on measurement of quantum entanglement in optical systems. After
 spending some time pursuing other interests,[^fnote2] I began working on my
-Ph.D. in Applied Mathematics at University of Colorado. I'm currently finishing
-up my dissertation, which covers a range of topics in statistics, data
-analytics, and understanding noisy systems. For more details on all that, check
-out [my portfolio](/portfolio/), or take a look at [my resume][4].
+Ph.D. in Applied Mathematics at University of Colorado. My dissertation covers a
+range of topics in statistics, data analytics, and understanding noisy
+systems. For more details on all that, check out [my portfolio](/portfolio/), or
+take a look at [my resume][4]. 
 
-I'm always looking for new opportunities and challenges. If you've got a data
-problem you want to address, or just want to know what you can get out of all
-this information you're gathering, [drop me a line][1].
+Currently, I work with [FullContact][7], helping design and implement the
+algorithms used for identity resolution in their graph database.
 
 [^fnote2]: After graduating from Reed, I spent some time living at
 	[Great Vow Zen Monastery][3], where we followed a daily schedule of work and
@@ -49,3 +48,5 @@ this information you're gathering, [drop me a line][1].
 [5]: https://www.entelligent.com
 
 [6]: https://www.thetradedesk.com
+
+[7]: https://www.fullcontact.com

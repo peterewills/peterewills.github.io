@@ -1,5 +1,5 @@
 ---
-title: "Peter Wills, Ph.D."
+title: "[Peter Wills, Ph.D.](/blog)"
 layout: splash
 permalink: /
 date: 2016-03-23T11:48:41-04:00
@@ -9,15 +9,15 @@ header:
   overlay_image: /assets/images/betty_bear.jpg
   caption: "Sunrise at [__Betty Bear Hut__](http://www.huts.org/The_Huts/bettybear.php)"
 
-excerpt: "Data wrangler, Pythonista, mathematician, problem solver, human being"
+excerpt: "Data wrangler, engineer, mathematician, problem solver, human being"
 
 intro: 
   - excerpt: "I build highly performant systems for analysis and
     optimization. My passion is building data tools that make businesses work
-    better. Check out [my portfolio](/portfolio/) for more. I'm also on 
-	[LinkedIn](https://www.linkedin.com/in/peterewills) and
-    [GitHub](https://www.github.com/peterewills). I'm always interested in new
-    opportunities, so don't be shy, [drop me a line](mailto:peter@pwills.com)!"
+    better. I like to reflect on topics on math and computing in
+    [my blog](/blog/). [My portfolio](/portfolio/) has more detail on past
+    projects. I'm also on [LinkedIn](https://www.linkedin.com/in/peterewills)
+    and [GitHub](https://www.github.com/peterewills)."
 
 
 feature_row:
