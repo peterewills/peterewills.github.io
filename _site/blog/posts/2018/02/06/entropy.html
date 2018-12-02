@@ -1,0 +1,604 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.14.1 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>The Meaning of Entropy - Peter Wills</title>
+<meta name="description" content="Entropy is a word that we see a lot in various forms. It’s classical use  comes from thermodynamics: e.g. “the entropy in the universe is always  increasing.” With the recent boom in statistics and machine learning, the word  has also seen a surge in use in information-theoretic contexts: e.g. “minimize  the cross-entropy of the validation set.”It’s been an ongoing investigation for me, trying to figure out just what the  hell this information-theoretic entropy is all about, and how it connects to  the notion I’m familiar with from statistical mechanics. Reading through the  wonderful book Data Analysis: a Bayesian Tutorial by D. S. Sivia, I  found the first connection between these two notions that really clicked for  me. I’m going to run through the basic argument here, in the hope that  reframing it in my own words will help me understand it more thoroughly.Entropy in Thermodynamics">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Peter Wills">
+<meta property="og:title" content="The Meaning of Entropy">
+<meta property="og:url" content="http://localhost:4000/blog/posts/2018/02/06/entropy.html">
+
+
+  <meta property="og:description" content="Entropy is a word that we see a lot in various forms. It’s classical use  comes from thermodynamics: e.g. “the entropy in the universe is always  increasing.” With the recent boom in statistics and machine learning, the word  has also seen a surge in use in information-theoretic contexts: e.g. “minimize  the cross-entropy of the validation set.”It’s been an ongoing investigation for me, trying to figure out just what the  hell this information-theoretic entropy is all about, and how it connects to  the notion I’m familiar with from statistical mechanics. Reading through the  wonderful book Data Analysis: a Bayesian Tutorial by D. S. Sivia, I  found the first connection between these two notions that really clicked for  me. I’m going to run through the basic argument here, in the hope that  reframing it in my own words will help me understand it more thoroughly.Entropy in Thermodynamics">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2018-02-06T00:00:00-07:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/blog/posts/2018/02/06/entropy.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Peter Wills Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/">Peter Wills</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/" >Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/portfolio/" >Portfolio</a>
+            </li><li class="masthead__menu-item">
+              <a href="/assets/docs/resume.pdf" >Resume</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/" >Blog</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/headshot.jpg" alt="Peter Wills" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Peter Wills</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Data wrangler, engineer, mathematician, problem solver, human being
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Boulder, CO</span>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:peter@pwills.com">
+            <meta itemprop="email" content="peter@pwills.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/peterewills" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/peterewills" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="The Meaning of Entropy">
+    <meta itemprop="description" content="Entropy is a word that we see a lot in various forms. It’s classical use  comes from thermodynamics: e.g. “the entropy in the universe is always  increasing.” With the recent boom in statistics and machine learning, the word  has also seen a surge in use in information-theoretic contexts: e.g. “minimize  the cross-entropy of the validation set.”It’s been an ongoing investigation for me, trying to figure out just what the  hell this information-theoretic entropy is all about, and how it connects to  the notion I’m familiar with from statistical mechanics. Reading through the  wonderful book Data Analysis: a Bayesian Tutorial by D. S. Sivia, I  found the first connection between these two notions that really clicked for  me. I’m going to run through the basic argument here, in the hope that  reframing it in my own words will help me understand it more thoroughly.Entropy in Thermodynamics">
+    <meta itemprop="datePublished" content="February 06, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">The Meaning of Entropy
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Contents</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#entropy-in-thermodynamics">Entropy in Thermodynamics</a>
+    <ul>
+      <li><a href="#counting-microstates">Counting Microstates</a></li>
+      <li><a href="#the-boltzmann-entropy">The Boltzmann Entropy</a></li>
+    </ul>
+  </li>
+  <li><a href="#entropy-in-information-theory">Entropy in Information Theory</a>
+    <ul>
+      <li><a href="#permutations-and-probabilities">Permutations and Probabilities</a></li>
+      <li><a href="#from-boltzmann-to-shannon">From Boltzmann to Shannon</a></li>
+    </ul>
+  </li>
+  <li><a href="#who-cares">Who Cares?</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p><strong>Entropy</strong> is a word that we see a lot in various forms. It’s classical use
+  comes from thermodynamics: e.g. “the entropy in the universe is always
+  increasing.” With the recent boom in statistics and machine learning, the word
+  has also seen a surge in use in information-theoretic contexts: e.g. “minimize
+  the cross-entropy of the validation set.”</p>
+
+<p>It’s been an ongoing investigation for me, trying to figure out just what the
+  hell this information-theoretic entropy is all about, and how it connects to
+  the notion I’m familiar with from statistical mechanics. Reading through the
+  wonderful book <a href="https://www.amazon.com/Data-Analysis-Bayesian-Devinderjit-Sivia/dp/0198568320">Data Analysis: a Bayesian Tutorial</a> by D. S. Sivia, I
+  found the first connection between these two notions that really clicked for
+  me. I’m going to run through the basic argument here, in the hope that
+  reframing it in my own words will help me understand it more thoroughly.</p>
+
+<h2 id="entropy-in-thermodynamics">Entropy in Thermodynamics</h2>
+
+<p>Let’s start with the more intuitive notion, which is that of thermodynamic
+entropy. This notion, when poorly explained, can seem opaque or quixotic;
+however, when viewed through the right lens, it is straightforward, and the law
+of increasing entropy becomes a highly intuitive result.</p>
+
+<h3 id="counting-microstates">Counting Microstates</h3>
+
+<p>Imagine, if you will, the bedroom of a teenager. We want to talk about the
+entropy of two different states: the state of being “messy” and the state of
+being “clean.” We will call these <strong>macrostates</strong>; they describe the macroscopic
+(large-scale) view of the room. However, there are also many different
+microstates. One can resolve these on a variety of scales, but let’s just say
+they correspond to the location/position of each individual object in the
+room. To review:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Definition</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Macrostate</td>
+      <td>Overall Description</td>
+      <td>“Messy”</td>
+    </tr>
+    <tr>
+      <td>Microstate</td>
+      <td>Fine-Scale Description</td>
+      <td>“Underwear on lamp, shoes in bed, etc.”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="the-boltzmann-entropy">The Boltzmann Entropy</h3>
+
+<p>One might notice an interesting fact: that there are many more possible
+microstates that correspond to “messy” than there are microstates that
+correspond to “clean.” <strong>This is exactly what we mean when we say that a messy
+room has higher entropy.</strong> In particular, the entropy of a macrostate is <strong>the
+log of the number of microstates that correspond to that macrostate.</strong> We call
+this the Boltzmann entropy, and denote it by \(S_B\). If there are
+\(\Omega\) possible microstates that correspond to the macrostate of being
+“messy,” then we define the entropy of this state as<sup id="fnref:fnote2"><a href="#fn:fnote2" class="footnote">1</a></sup></p>
+
+<script type="math/tex; mode=display">S_B(\text{messy}) = \log(\Omega).</script>
+
+<p>This is essentiall all we need to know here.<sup id="fnref:fnote1"><a href="#fn:fnote1" class="footnote">2</a></sup> The entropy tells us how many
+different ways there are to get a certian state. A pyramid of oranges in a
+supermarket has lower entropy than the oranges fallen all over the floor,
+because there are many configurations of oranges that we would call “oranges all
+over the floor,” but very few that we would call “a nicely organized pyramid of
+oranges.”</p>
+
+<p>In this context, the law of increasing entropy becomes almost tautological. If
+things are moving around in our bedroom at random, and we call <em>most</em> of those
+configurations “messy,” then the room will tend towards messyness rather than
+cleanliness. We sometimes use the terms “order” and “disorder” to refer to
+states of relatively low and high entropy, respectively.</p>
+
+<h2 id="entropy-in-information-theory">Entropy in Information Theory</h2>
+
+<p>One also frequently encounters a notion of entropy in statistics and information
+theory. This is called the <em>Shannon entropy</em>, and the motivation for this post
+is my persistent puzzlement over the connection between Boltzmann’s notion of
+entropy and Shannon’s. Previous to reading <a href="https://www.amazon.com/Data-Analysis-Bayesian-Devinderjit-Sivia/dp/0198568320">D. Sivia’s manual</a>, I only knew
+the definition of Shannon entropy, but his work presented such a clear
+exposition of the connection to Boltzmann’s ideas that I felt compelled to share it.</p>
+
+<h3 id="permutations-and-probabilities">Permutations and Probabilities</h3>
+
+<p>We’ll work with a thought experiment.<sup id="fnref:fnote3"><a href="#fn:fnote3" class="footnote">3</a></sup> Suppose we have \(N\) subjects
+we organize into \(M\) groups, with \(N\gg M\). Let \(n_i\) indicate the
+number of subjects that are in the \(i^\text{th}\) group, for
+\(i=1,\ldots,M\). Of course,</p>
+
+<script type="math/tex; mode=display">\sum_{i=1}^M n_i = N,</script>
+
+<p>and if we choose a person at random the probability that they are in group
+\(i\) is</p>
+
+<script type="math/tex; mode=display">p_i = \frac{n_i}{N}.</script>
+
+<p>The <strong>Shannon entropy</strong> of such a discrete distribution is defined as</p>
+
+<script type="math/tex; mode=display">S = -\sum_{i=1}^M p_i\log(p_i)</script>
+
+<p>But why? Why \(p\log(p)\)? Let’s look and see.</p>
+
+<p>A macrostate of this system is defined by the size of the groups \(n_i\);
+equivalently, it is defined as the probability distribution. A microstate of
+this system is specifying the group of each subject: the specification that
+subject number \(j\) is in group \(i\) for each \(j=1,\ldots,N\). How many
+microstates correspond to a given macrostate? For the first group, we can fill
+it with any of the \(N\) participants, and we must choose \(n_1\) members of
+the group, so the number of ways of assigning participants to this group is</p>
+
+<script type="math/tex; mode=display">{N\choose n_1} = \frac{N!}{n_1!(N-n_1)!}</script>
+
+<p>For the second group, there are \(N - n_1\) remaining subjects, and we must assign
+\(n_2\) of them, and so on. Thus, the total number of ways of arranging the
+\(N\) balls into the groups of size \(n_i\) is</p>
+
+<script type="math/tex; mode=display">\Omega = {N\choose n_1}{N-n_1 \choose n_2}\ldots {N-n_1-\ldots-n_{M-1}\choose n_M}.</script>
+
+<p>This horrendous list of binomial coefficients can be simplified down to just</p>
+
+<script type="math/tex; mode=display">\Omega =  \frac{N!}{n_1!n_2!\ldots n_M!}.</script>
+
+<p>The Boltzmann entropy of this macrostate is then</p>
+
+<script type="math/tex; mode=display">S_B = \log(\Omega) = \log(N!) - \sum_{i=1}^M \log(n_i!)</script>
+
+<h3 id="from-boltzmann-to-shannon">From Boltzmann to Shannon</h3>
+
+<p><strong>We will now show that the Boltzmann entropy is (approimxately) a scaling of the
+Shannon entropy</strong>; in particular, \(S_B \approx N\,S\). Things are going to get
+slightly complicated in the algebra, but hang on. If you’d prefer, you can take
+my word for it, and skip to the next section.</p>
+
+<p>We will use the Stirling approximation \(\log(n!)\approx n\log(n)\)<sup id="fnref:fnote4"><a href="#fn:fnote4" class="footnote">4</a></sup>
+to simplify:</p>
+
+<script type="math/tex; mode=display">S_B \approx N\log(N) - \sum_{i=1}^M n_i\log(n_i)</script>
+
+<p>Since the probability \(p_i=n_i/N\), we can re-express \(S_b\) in terms of
+\(p_i\) via</p>
+
+<script type="math/tex; mode=display">S_B \approx N\log(N)-N\sum_{i=1}^M p_i\log(Np_i)</script>
+
+<p>Since \(\sum_ip_i=1\), we have</p>
+
+<script type="math/tex; mode=display">S_B \approx -N\sum_{i=1}^M p_i\log(p_i) = N \, S.</script>
+
+<p>Phew! So, the Boltzmann entropy \(S_b\) of having \(N\) students in \(M\)
+groups with sized \(n_i\) is (approximately) \(N\) times the Shannon
+entropy.</p>
+
+<h2 id="who-cares">Who Cares?</h2>
+
+<p>Admittedly, this kind of theoretical revalation will probably not change the way
+you deploy cross-entropy in your machine learning projects. It is primarily used
+because its gradients behave well, which is important in the stochastic
+gradient-descent algorithms favored by modern deep-learning
+architectures. However, I personally have a strong dislike of using tools that I
+don’t have both a theoretical understanding of; hopefully you now have a better
+grip on the theoretical underpinnings of cross entropy, and its relationship to
+statistical mechanics.</p>
+
+<!-------------------------------- FOOTER ---------------------------->
+
+<!-- Wish we could put this in _includes/scripts.html. But it doesn't run from -->
+<!-- there. It needs to be run at the bottom of the file, rather than at the   -->
+<!-- top; perhaps that has something to do with it. Anyways, I'll just include -->
+<!-- this chunk of HTML at the footer of all my posts, even though its fugly.  -->
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://pwills-com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<div class="footnotes">
+  <ol>
+    <li id="fn:fnote2">
+      <p>Often a constant will be included in this definition, so that
+\(S=k_B \log(\Omega)\). This constant is arbitrary, as it simply rescales
+the units of our entropy, and it will only serve to get in the way of our
+analysis, so we omit it. <a href="#fnref:fnote2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:fnote1">
+      <p>All we need to know for the purpose of establishing a connection
+between thermodynamic and information-theoretic entropy; of course there is
+much more to know, and there are many alternative ways of conceptualizing
+entropy. However, none of these have ever been intuitive to me in the way
+that Boltzmann’s definition of entropy is. <a href="#fnref:fnote1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:fnote3">
+      <p>We have slightly rephrased Sivia’s presentation to fit our purposes here. <a href="#fnref:fnote3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:fnote4">
+      <p>The most commonly used form of Stirling’s approximation is the more
+precise \(\log(n!)\approx n\log(n)-n\), but we use a coarser form here. <a href="#fnref:fnote4" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-02-06T00:00:00-07:00">February 06, 2018</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/posts/2017/12/20/website.html" class="pagination--pager" title="A Website is Born!
+">Previous</a>
+    
+    
+      <a href="/blog/posts/2018/06/24/sampling.html" class="pagination--pager" title="Inverse Transform Sampling in Python
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Peter Wills. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
+
+
+  </body>
+</html>

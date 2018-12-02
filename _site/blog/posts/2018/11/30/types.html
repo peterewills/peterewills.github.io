@@ -1,0 +1,602 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.14.1 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Types as Propositions - Peter Wills</title>
+<meta name="description" content="Some of the most meaningful mathematical realizations that I’ve had have beenunexpected connections between two topics; that is, realizing that two conceptsthat first appeared quite distinct are in fact one and the same. In our firstlinear algebra courses, we learn that manipulations of matrices is, in fact,equivalent to solving systems of equations. In quantum mechanics, we see thatphysically observable quantities are, mathematically speaking, linearoperators (I still don’t quite grok this one). And, my personal favoriteexample, we learn in functional analysis that the linear functionals in the dualspace of a Hilbert space are themselves in perfect correspondence with thefunctions in the original space.1            This statement is difficult to understand without background in &#8617;      ">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Peter Wills">
+<meta property="og:title" content="Types as Propositions">
+<meta property="og:url" content="http://localhost:4000/blog/posts/2018/11/30/types.html">
+
+
+  <meta property="og:description" content="Some of the most meaningful mathematical realizations that I’ve had have beenunexpected connections between two topics; that is, realizing that two conceptsthat first appeared quite distinct are in fact one and the same. In our firstlinear algebra courses, we learn that manipulations of matrices is, in fact,equivalent to solving systems of equations. In quantum mechanics, we see thatphysically observable quantities are, mathematically speaking, linearoperators (I still don’t quite grok this one). And, my personal favoriteexample, we learn in functional analysis that the linear functionals in the dualspace of a Hilbert space are themselves in perfect correspondence with thefunctions in the original space.1            This statement is difficult to understand without background in &#8617;      ">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2018-11-30T00:00:00-07:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/blog/posts/2018/11/30/types.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Peter Wills Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/">Peter Wills</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/" >Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/portfolio/" >Portfolio</a>
+            </li><li class="masthead__menu-item">
+              <a href="/assets/docs/resume.pdf" >Resume</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/" >Blog</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/headshot.jpg" alt="Peter Wills" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Peter Wills</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Data wrangler, engineer, mathematician, problem solver, human being
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Boulder, CO</span>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:peter@pwills.com">
+            <meta itemprop="email" content="peter@pwills.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/peterewills" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/peterewills" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Types as Propositions">
+    <meta itemprop="description" content="Some of the most meaningful mathematical realizations that I’ve had have beenunexpected connections between two topics; that is, realizing that two conceptsthat first appeared quite distinct are in fact one and the same. In our firstlinear algebra courses, we learn that manipulations of matrices is, in fact,equivalent to solving systems of equations. In quantum mechanics, we see thatphysically observable quantities are, mathematically speaking, linearoperators (I still don’t quite grok this one). And, my personal favoriteexample, we learn in functional analysis that the linear functionals in the dualspace of a Hilbert space are themselves in perfect correspondence with thefunctions in the original space.1            This statement is difficult to understand without background in &#8617;      ">
+    <meta itemprop="datePublished" content="November 30, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Types as Propositions
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  7 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Contents</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#an-example">An Example</a></li>
+  <li><a href="#functions-and-implication">Functions and Implication</a>
+    <ul>
+      <li><a href="#wait-what">Wait… what?</a></li>
+    </ul>
+  </li>
+  <li><a href="#in-conclusion">In Conclusion</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>Some of the most meaningful mathematical realizations that I’ve had have been
+unexpected connections between two topics; that is, realizing that two concepts
+that first appeared quite distinct are in fact one and the same. In our first
+linear algebra courses, we learn that manipulations of matrices is, in fact,
+equivalent to solving systems of equations. In quantum mechanics, we see that
+<a href="https://en.wikipedia.org/wiki/Observable">physically observable quantities</a> are, mathematically speaking, linear
+operators (I still don’t quite grok this one). And, my personal favorite
+example, we learn in functional analysis that the linear functionals in the dual
+space of a Hilbert space are themselves in perfect correspondence with the
+functions in the original space.<sup id="fnref:fnote1"><a href="#fn:fnote1" class="footnote">1</a></sup></p>
+
+<p>Recently, I’ve stumbled upon another such result, which has captured my
+attention for a while. The result, often referred to as Curry-Howard
+correspondence, is the statement that propositions in a formal logical system
+are equivalent to types in the simply typed lambda calculus. Loosely, this means
+that <strong>logical statements are equivalent to data types</strong>!</p>
+
+<p>Let’s unpack that a bit; “propositions” are just statements in a logical
+system.<sup id="fnref:fnote15"><a href="#fn:fnote15" class="footnote">2</a></sup> In mathematics, for example, one might put forward the
+proposition “no even numbers are prime,” or “14 is greater than 18”. Note that
+propositions need not be <em>true</em>; in fact, some logical systems support
+propositions that cannot even be determined to be true or false.<sup id="fnref:fnote2"><a href="#fn:fnote2" class="footnote">3</a></sup>
+“Types” can be though of as types in a computing language; <code class="highlighter-rouge">Integer</code>, <code class="highlighter-rouge">Boolean</code>,
+and so on. We will have much more to say about types as we move forward, but for
+now, hold in your mind the conventional notion of types as defined in a language
+such as Java or Python (or better yet, Haskell).</p>
+
+<p>How on earth could these two be in correspondence? On the surface, they appear
+entirely separate concepts. In this post, I’ll spend some time unpacking what
+this equivalence is actually saying, using a simple example. I am far from a
+full understanding of it, but as usual, I write about it in the hopes that I’ll
+be forced to clarify what I <em>do</em> understand, or even better, be corrected by
+someone more knowledgable than myself.</p>
+
+<p>Speaking of those more knowledgable than myself, there are various resources
+online that I found very helpful in understanding the correspondence:
+<a href="https://www.youtube.com/watch?v=IOiZatlZtGU&amp;t=1176s">Philip Wadler’s talk</a> on the subject is a great starting point, and there
+are a number of <a href="http://lambda-the-ultimate.org/node/1532">useful</a> <a href="https://stackoverflow.com/questions/2969140/what-are-the-most-interesting-equivalences-arising-from-the-curry-howard-isomorp">discussions</a> <a href="https://stackoverflow.com/questions/2829347/a-question-about-logic-and-the-curry-howard-correspondence">available</a> on StackExchange and
+various functional programming forums.</p>
+
+<h2 id="an-example">An Example</h2>
+
+<p>I was confused by the idea of propositions as types when I first encountered it,
+and after learning more, I believe that the root of my confusion lies in the
+fact that types such as <code class="highlighter-rouge">Integer</code>, <code class="highlighter-rouge">Boolean</code>, and <code class="highlighter-rouge">String</code>, which we are
+familiar with from programming, correspond to very trivial propositions, making
+them poor examples. We’ll have to introduce something a bit fancier; a
+<em>conditional type</em>. For example, <code class="highlighter-rouge">OddInt</code> might be odd Integers, and <code class="highlighter-rouge">PrimeInt</code>
+might be prime integers. We’ll approximate these conditional types with custom
+classes in Scala. Classes and types are <a href="https://stackoverflow.com/questions/5031640/what-is-the-difference-between-a-class-and-a-type-in-scala-and-java">different beasts</a>, of course, but
+we will ignore that distinction in this post.<sup id="fnref:fnote3"><a href="#fn:fnote3" class="footnote">4</a></sup></p>
+
+<p>Let’s consider one conditional type in particular: <code class="highlighter-rouge">BigInteger</code>. This type
+(actually a class in this example) is defined as follows:</p>
+
+<figure class="highlight"><pre><code class="language-scala" data-lang="scala"><span class="k">class</span> <span class="nc">BigInteger</span> <span class="o">(</span><span class="k">val</span> <span class="n">value</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="o">{</span>
+
+  <span class="k">private</span> <span class="k">final</span> <span class="k">val</span> <span class="nc">LOWER_BOUND</span> <span class="k">=</span> <span class="mi">10000</span>
+  
+  <span class="k">if</span> <span class="o">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="nc">LOWER_BOUND</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nc">IllegalArgumentException</span><span class="o">(</span><span class="s">"Too small!"</span><span class="o">)</span>
+  <span class="o">}</span>
+  
+  <span class="k">override</span> <span class="k">def</span> <span class="n">toString</span> <span class="k">=</span> <span class="n">s</span><span class="s">"BigInteger($value)"</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p>One could then instantiate a <code class="highlighter-rouge">BigInteger</code> as follows:</p>
+
+<figure class="highlight"><pre><code class="language-scala" data-lang="scala"><span class="k">val</span> <span class="n">big</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">BigInteger</span><span class="o">(</span><span class="mi">10001</span><span class="o">)</span>
+<span class="c1">// res0: BigInteger(10001)
+</span>
+<span class="k">val</span> <span class="n">small</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">BigInteger</span><span class="o">(</span><span class="mi">500</span><span class="o">)</span>
+<span class="o">//</span> <span class="n">java</span><span class="o">.</span><span class="n">lang</span><span class="o">.</span><span class="nc">IllegalArgumentException</span><span class="k">:</span> <span class="kt">Too</span> <span class="kt">small!</span></code></pre></figure>
+
+<p>Now the fundemanetal question: what proposition corresponds to this type?  In
+simple scenarios like this, the corresponding proposition is that the type can
+be <em>inhabited</em>; that is, there exists a value that satisfies that type. For
+example, the type <code class="highlighter-rouge">BigInteger</code> corresponds to the claim “there exists an integer
+\(i\) for which \( i &gt; 10,000 \)”. Obviously, such an integer exists, and the
+fact that we can instantiate this type indicates that it corresponds to a true
+proposition. Alternatively, consider a type <code class="highlighter-rouge">WeirdInteger</code>, which is an integer
+satisfying <code class="highlighter-rouge">i &lt; 3 &amp;&amp; i &gt; 5</code>. We can define the type well enough, but there are
+no values which satisfy it; it is an uninhabitable type, and so corresponds to a
+false proposition.</p>
+
+<h2 id="functions-and-implication">Functions and Implication</h2>
+
+<p>Let’s make things a little more interesting. In programming languages, there are
+not only primitive types like <code class="highlighter-rouge">Integer</code> and <code class="highlighter-rouge">Boolean</code>, but there are also
+<strong>function types</strong>, which are the types of functions. For example, in Scala, the
+function <code class="highlighter-rouge">def f(x: Int) = x.toString</code> has type <code class="highlighter-rouge">Int =&gt; String</code>, which is to say
+it is a function that maps integers to strings.</p>
+
+<p>What sort of propositions would <em>functions</em> correspond to? It turns out that
+functions naturally map to <em>implication</em>. In some ways, the correspondence here
+is very natural. Consider the conditional type <code class="highlighter-rouge">BigInteger</code>, and the conditional
+type <code class="highlighter-rouge">BiggerInteger</code>. The definition of the latter should look familiar, from
+above:</p>
+
+<figure class="highlight"><pre><code class="language-scala" data-lang="scala"><span class="k">class</span> <span class="nc">BiggerInteger</span> <span class="o">(</span><span class="k">val</span> <span class="n">value</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="o">{</span>
+
+  <span class="k">private</span> <span class="k">final</span> <span class="k">val</span> <span class="nc">LOWER_BOUND</span> <span class="k">=</span> <span class="mi">20000</span>
+  
+  <span class="k">if</span> <span class="o">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="nc">LOWER_BOUND</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nc">IllegalArgumentException</span><span class="o">(</span><span class="s">"Too small!"</span><span class="o">)</span>
+  <span class="o">}</span>
+  
+  <span class="k">override</span> <span class="k">def</span> <span class="n">toString</span> <span class="k">=</span> <span class="n">s</span><span class="s">"BiggerInteger($value)"</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p>Now, we can write a function that maps <code class="highlighter-rouge">BigInteger</code> to <code class="highlighter-rouge">BiggerInteger</code>:</p>
+
+<figure class="highlight"><pre><code class="language-scala" data-lang="scala"><span class="k">def</span> <span class="n">makeBigger</span><span class="o">(</span><span class="n">b</span><span class="k">:</span> <span class="kt">BigInteger</span><span class="o">)</span><span class="k">:</span> <span class="kt">BiggerInteger</span> <span class="o">=</span> 
+  <span class="k">new</span> <span class="nc">BiggerInteger</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="mi">2</span><span class="o">)</span></code></pre></figure>
+
+<p>Recall that the proposition corresponding to the type <code class="highlighter-rouge">BigInteger</code> is the
+statement “there exists an integer greater than 10,000”, and the proposition
+corresponding to <code class="highlighter-rouge">Bigger</code> is the statement “there exists an integer greater than
+20,000”; the proposition corresponding to the function type <code class="highlighter-rouge">BigInteger =&gt;
+BiggerInteger</code> is then just the statement “the existence of an integer above
+10,000 implies the existence of an integer above 20,000”. And note that, as it
+should be for an implication, we do not care whether there actually <em>does</em> exist
+an integer above 10,000; we simply know that <em>if</em> one exists, then its existence
+implies the existence of an integer above 20,000.</p>
+
+<p>To be a bit more explicit, the function that we wrote above can be thought of as
+a <strong>proof</strong> of the implication; in particular, if we suppose that there exists
+an \(i\) such that \(i &gt; 10,000\), then clearly \(2i &gt; 20,000\), and so
+if we let \(j=2i\), then we have proven the existence of a \(j\) such that
+\(j &gt; 20,000\). This is what the theoretical computer scientists mean when
+they say that “programs are proofs”.</p>
+
+<p>Of course, Scala is not a proof-checking language, and cannot tell during
+compilation that the function <code class="highlighter-rouge">makeBigger</code> is valid; we would need a much richer
+type system to be able to validate such functions. Consider that the following
+function compiles with no problem, although there are no input values for which
+it will not throw a (runtime) exception:</p>
+
+<figure class="highlight"><pre><code class="language-scala" data-lang="scala"><span class="k">def</span> <span class="n">wonky</span><span class="o">(</span><span class="n">b</span><span class="k">:</span> <span class="kt">BigInteger</span><span class="o">)</span><span class="k">:</span> <span class="kt">BiggerInteger</span> <span class="o">=</span> 
+  <span class="k">new</span> <span class="nc">BiggerInteger</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="n">value</span> <span class="o">%</span> <span class="mi">1000</span><span class="o">)</span></code></pre></figure>
+
+<h3 id="wait-what">Wait… what?</h3>
+
+<p>If you think about it a bit more, it’s sort of a weird example; you
+could map <em>any</em> type to <code class="highlighter-rouge">BiggerInteger</code>, just by doing <code class="highlighter-rouge">def f[A](a:A):
+BiggerInteger = new BiggerInteger(20001)</code>. This is because the proposition that
+corresponds to <code class="highlighter-rouge">BiggerInteger</code> is true (the type is inhabitable), and if B is
+true, then A implies B for any A at all.</p>
+
+<p>Common languages such as Haskell only express very trivial propositions with
+their types; there does exist one uninhabitable type (<code class="highlighter-rouge">void</code>), but I have not
+found much use for it in practice. The benefit of using conditional types for
+these examples is that we can explore at least some types which have
+corresponding <em>false</em> propositions, such as <code class="highlighter-rouge">WeirdInteger</code>, which are integers
+<code class="highlighter-rouge">i</code> which satisfy <code class="highlighter-rouge">i &lt; 3 &amp;&amp; i &gt; 5</code>.</p>
+
+<h2 id="in-conclusion">In Conclusion</h2>
+
+<p>Seeing all this, you can begin to get a sense of how computer-assisted proof
+techniques might arise out of it. If the fact that a program compiles is
+equivalent to the truth the corrsponding proposition, then all we need is a
+language with a rich enough type system to express interesting
+statements. Examples of languages used in this way include <a href="https://coq.inria.fr/">Coq</a> and
+<a href="https://en.wikipedia.org/wiki/Agda_(programming_language">Agda</a>. A thorough discussion of such languages is beyond both the scope of
+this post and my understanding.</p>
+
+<p>I think what keeps me interested in this subject is that it still remains quite
+opaque to me; I’ve struggled to even come up with these simple (and flawed)
+examples of how Curry-Howard correspondence plays out in practice. I hope that
+anyone reading this who understand the subject better than I do will leave a
+detailed list of my misunderstandings, so that I can better grasp this
+mysterious and fascinating topic.</p>
+
+<!-------------------------------- FOOTER ---------------------------->
+
+<!-- Wish we could put this in _includes/scripts.html. But it doesn't run from -->
+<!-- there. It needs to be run at the bottom of the file, rather than at the   -->
+<!-- top; perhaps that has something to do with it. Anyways, I'll just include -->
+<!-- this chunk of HTML at the footer of all my posts, even though its fugly.  -->
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://pwills-com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<div class="footnotes">
+  <ol>
+    <li id="fn:fnote1">
+      <p>This statement is difficult to understand without background in
+functional analysis, but it is in fact one of the most beautiful examples of
+such an equivalence result. <a href="#fnref:fnote1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:fnote15">
+      <p>I’m being a bit sloppy here. The type of logic we’re talking about
+here is not classical logic, but rather in the sense of <a href="https://en.wikipedia.org/wiki/Natural_deduction">natural deduction</a>. <a href="#fnref:fnote15" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:fnote2">
+      <p>Such systems are called undecidable; see
+<a href="https://en.wikipedia.org/wiki/Decidability_(logic)">the wiki entry on decidability</a> for more information. <a href="#fnref:fnote2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:fnote3">
+      <p>We won’t be careful about whether the idea of conditional types
+presented here corresponds well with conditional types as they are actually
+implemented in programming languages such as <a href="https://github.com/Microsoft/TypeScript/pull/21316">Typescript</a>. <a href="#fnref:fnote3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-11-30T00:00:00-07:00">November 30, 2018</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/posts/2018/06/24/sampling.html" class="pagination--pager" title="Inverse Transform Sampling in Python
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Peter Wills. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
+
+
+  </body>
+</html>
