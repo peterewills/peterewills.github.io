@@ -18,6 +18,7 @@ exclude:
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
+  - jekyll-include-cache
 
 # Build settings
 markdown: kramdown
