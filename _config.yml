@@ -50,7 +50,7 @@ analytics:
 
 
 # pagination for blog page
-paginate: 5 # number of posts to show
+paginate: 15 # number of posts to show
 paginate_path: /blog/page:num/
 
 # default YAML front matter

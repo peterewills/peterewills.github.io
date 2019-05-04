@@ -16,11 +16,11 @@ information. Call it what you will: data science, machine learning, or
 statistics; the modern technological world lies at the intersection of
 mathematics and computing, and that's where I like to play.
 
-I've worked with [Stage 1 start-ups][5] and [publicly traded corporations][6], building
-models, establishing codebases, and providing mathematical expertise to
-developers. My mother tongue is Python, but I also speak R and Matlab. I have
-experience working with scikit-learn, Tensorflow, pandas, and many other popular
-data analysis and machine learning libraries. 
+I've worked with [Stage 1 start-ups][5] and [publicly traded corporations][6],
+building models, establishing codebases, and providing mathematical expertise to
+developers. My mother tongue is Python, but I also speak Scala and Java. I have
+experience working with Apache Spark, scikit-learn, Tensorflow, pandas, and many
+other popular data analysis and machine learning libraries.
 
 I have a bachelors degree in Physics from Reed College, where I did
 [my thesis][2] on measurement of quantum entanglement in optical systems. After
@@ -30,8 +30,8 @@ range of topics in statistics, data analytics, and understanding noisy
 systems. For more details on all that, check out [my portfolio](/portfolio/), or
 take a look at [my resume][4]. 
 
-Currently, I work with [FullContact][7], helping design and implement the
-algorithms used for identity resolution in their graph database.
+I currently live in San Francisco, where I work as a data scientist with the
+inventory optimization team at [Stitch Fix][7].
 
 [^fnote2]: After graduating from Reed, I spent some time living at
 	[Great Vow Zen Monastery][3], where we followed a daily schedule of work and
@@ -49,4 +49,4 @@ algorithms used for identity resolution in their graph database.
 
 [6]: https://www.thetradedesk.com
 
-[7]: https://www.fullcontact.com
+[7]: https://multithreaded.stitchfix.com/algorithms/
