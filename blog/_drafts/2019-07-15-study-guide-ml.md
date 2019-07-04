@@ -1,8 +1,13 @@
 ---
-title: "Data Science Study Guide Part I: Machine Learning"
+title: "Data Science Study Guide Part II: Machine Learning"
 category: posts
-date: 2019-02-06
+date: 2019-07-15
 ---
+
+# TODO
+
+Rework this, and make it consistent with the stats one. Maybe skip this for now
+and just do the coding one? It'll be much easier.
 
 Data science interviews tend to focus on four main topics: computer science
 (coding), statistics, machine learning, and databases (SQL). I've been building
