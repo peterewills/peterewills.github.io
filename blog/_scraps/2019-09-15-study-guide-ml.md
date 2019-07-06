@@ -1,7 +1,7 @@
 ---
 title: "Data Science Study Guide Part II: Machine Learning"
 category: posts
-date: 2019-07-15
+date: 2019-09-15
 ---
 
 # TODO
@@ -28,7 +28,27 @@ For no particular reason, we'll start with machine learning.
 
 ## Once Upon a Time, There Was Some Data...
 
-A good place to start is with a description of 
+
+# Classification
+
+## Logistic Regression
+
+Logistic regression is closely related to linear regression, although it is
+important in a few key ways. Logistic regression is a classification
+algorithm - it tries to determine the probability that a data point is in one
+of two classes. Since there are only two classes, it only needs to predict a
+single probability. What it actually does is predict the probability in
+logit-space; rather than predicting $$p$$, it predicts
+
+$$\log\left(\frac{p}{1-p}\right)$$
+
+While this might seem confusing, you can just think of these as different
+"units" on probability. Odds ($$p/1-p$$) are another kind of units that are
+useful - logits (and odds, in fact) are nice because the vary between $$\pm
+\infty$$ rather than just in $$[0,1]$$.
+
+One key difference between linear regression and logistic regression is that
+our training data 
 
 
 <!-------------------------------- FOOTER ----------------------------> 
