@@ -3,6 +3,7 @@ source "https://rubygems.org"
 # Theme
 gem "jekyll-remote-theme"
 gem "minimal-mistakes-jekyll"
+gem "jekyll-include-cache"
 
 # github-pages plugins
 gem "github-pages", group: :jekyll_plugins
