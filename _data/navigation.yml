@@ -8,8 +8,8 @@ main:
     url: /portfolio/
   - title: "Resume"
     url: /assets/docs/resume.pdf
-  - title: "Blog"
-    url: /blog/
+  # - title: "Blog"
+  #   url: /blog/
 
 # sidebar for portfolio
 portfolio:

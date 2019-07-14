@@ -1,6 +1,6 @@
 ---
 title: "[Peter Wills, Ph.D.](/blog)"
-layout: splash
+layout: home
 permalink: /
 date: 2016-03-23T11:48:41-04:00
 header:
@@ -19,36 +19,11 @@ intro:
     projects. I'm also on [LinkedIn](https://www.linkedin.com/in/peterewills)
     and [GitHub](https://www.github.com/peterewills)."
 
-
-feature_row:
-  - image_path: assets/images/ai_head.jpg
-    alt: "DeskAI"
-    title: "DeskAI: Smarter Online User Targeting"
-    excerpt: "Automated optimization of online advertising campaigns."
-    url: "/portfolio/deskai/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"	
-  - image_path: /assets/images/miles.jpg
-    alt: "Music"
-    title: "Algorithmic Musical Genre Classification"
-    excerpt: "Detection of musical genre directly from the audio file."
-    url: "/portfolio/genre_cls/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"	
-  - image_path: /assets/images/social_network.jpg
-    alt: "Social Network"
-    title: "Anomaly Detection in Social Networks"
-    excerpt: "Anomaly detection in social network data, using the graph resistance."
-    url: "/portfolio/social-networks/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
 ---
 
+<!--
+
 {% include feature_row id="intro" type="center" %}
-
-<div style="margin-bottom:1cm" align="center"><font size="55">Selected Projects</font></div>
-
-{% include feature_row %}
 
 <div style="margin-bottom:1cm" align="center"><font size="55">About Me</font></div>
 
@@ -68,7 +43,7 @@ theorem is the [Reisz representation theorem][1], and I worship at the
 
 <div style="margin-top:1 cm" align="center">For more, see <a href="{{ "/about/" | absolute_url }}">About Me.</a></div>
 
-
+-->
 
 [1]: https://en.wikipedia.org/wiki/Riesz_representation_theorem
 
