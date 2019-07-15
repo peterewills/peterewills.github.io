@@ -8,7 +8,7 @@ toc: true
 toc_label: "Contents"
 ---
 
-# Dynamic Anomaly Detection
+# Anomaly Detection in Dynamic Networks
 
 *(This section is an overview of material available as a preprint [on the arXiv][1].)*
 

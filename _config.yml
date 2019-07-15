@@ -30,7 +30,7 @@ minimal_mistakes_skin: "dirt"
 author:
   name   : "Peter Wills"
   avatar : "/assets/images/headshot.jpg"
-  bio    : "Data wrangler, engineer, mathematician, problem solver, human being"
+  bio    : "I have fun writing about interesting stuff. I tend to be interested in computing, math, physics, software engineering, and philosophy."
   location: "San Francisco, CA"
   github : peterewills
   linkedin: peterewills
@@ -71,7 +71,7 @@ defaults:
     values:
       toc: true
       toc_label: "Contents"
-      read_time: true
+      read_time: false
   # portfolio
   - scope:
       path: ""
