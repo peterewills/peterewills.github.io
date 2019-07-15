@@ -9,7 +9,6 @@ repository: "peterewills/peterewills.github.io"
 include:
   - _pages
   - assets
-#  - blog
   - index.html
 exclude:
   - TODO.md
@@ -17,13 +16,13 @@ exclude:
 
 plugins:
   - jekyll-feed
-#  - jekyll-remote-theme
+  - jekyll-remote-theme
   - jekyll-include-cache
 
 # Build settings
 markdown: kramdown
 theme: "minimal-mistakes-jekyll"
-#remote_theme: "mmistakes/minimal-mistakes"
+remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "dirt"
   
 # settings for author profile
