@@ -2,6 +2,7 @@
 title: "New Paper: Metrics For Graph Comparison"
 category: posts
 date: 2019-07-05
+excerpt: "A brief discussion of my latest paper, which benchmarks various metrics used to compare complex networks, also known as graphs."
 ---
 
 I just put a [new paper up on the arXiv][1], and so I thought I would share it
