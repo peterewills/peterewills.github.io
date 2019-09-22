@@ -38,10 +38,10 @@ author:
 
 
 # # comments by disqus (can't get this to work)
-# comments:
-#   provider: "disqus"
-#   disqus:
-#     shortname: "pwills-com"
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "pwills-com"
 
 analytics:
   provider: "google"
