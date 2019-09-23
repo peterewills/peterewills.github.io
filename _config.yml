@@ -14,6 +14,7 @@ exclude:
   - TODO.md
   - README.md
   - "*.org"
+  - "*ltximg*"
 
 plugins:
   - jekyll-feed

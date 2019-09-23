@@ -11,8 +11,7 @@ TODO items for pwills.com.
 - Add social media links in footer
 
 ## Content
-- Work on Portfolio
-- Post about latex in emacs
+
 
 ## Other
 - reorganize /assets/images/

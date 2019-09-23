@@ -1,0 +1,115 @@
+#+STARTUP: showall indent
+#+OPTIONS: toc:nil 
+#+OPTIONS: tex:t
+
+#+TITLE: Blogging in Org
+#+SUBTITLE: My workflow for blogging in org mode.
+#+DATE: 2019-09-22
+
+Basic idea is to rework [[file:~/.emacs.d/lisp/ox-jekyll-md/ox-jekyll-md.el::;;;%20ox-jekyll-md.el%20---%20Export%20Jekyll%20on%20Markdown%20articles%20using%20org-mode.%20-*-%20lexical-binding:%20t;%20-*-][ox-jekyll]] to fit my purposes. It's derived from ox-md which is
+derived from ox-html.
+
+[[https://github.com/gonsie/ox-jekyll-md][ox-jekyll source code]]
+
+[[https://github.com/emacsmirror/org/blob/master/lisp/ox-md.el][ox-md source code]]
+
+[[https://github.com/emacsmirror/org/blob/master/lisp/ox-html.el][ox-html source code]]
+
+* TODO [5/7]
+SCHEDULED: <2019-09-21 Sat>
+
+Schedules get ignored, which is correct. Can schedule or deadline parts of the post if
+you want to.
+
+- [X] Fix underlining things
+- [X] Fix links
+- [ ] Fix equation delimiter rendering
+- [X] Ignore =ltximg= directories
+- [X] Get preamble export working
+  - [X] Pass subtitle in as excerpt
+  - [X] Set category as "post", don't set layout
+- [X] Get footnotes exporting properly 
+- [ ] Insert disqus block at bottom of the page (or better yet, get disqus working as it should via jekyll)
+
+Might put off the footnotes one, since it's mostly asthetic. Equation rendering is the
+top priority at the moment.
+
+** Fixing Equations
+
+Look through [[https:github.com/emacsmirror/org/blob/master/lisp/ox-html.el][the code for ox-html]] and search for "latex" to find the parts where they
+render latex. It's pretty complicated, which makes sense. We just need to change the
+delimiters it uses.
+
+** Fixing links
+
+I need to go digging through the section where it generates links. I want to set up a
+thing that specifically handles http links in there.
+
+UPDATE: Actually, you can just write your links as =https://= instead of =https:=, and then
+it works fine. I will start doing this in general, I think.
+
+** Comments in Disqus
+
+Right now we put a phat HTML blob at the bottom of the page. This is, obviously, less
+than ideal.
+
+* Blogging in Org!
+
+use =ox-jekyll=, which can be found [[https://github.com/gonsie/ox-jekyll-md][here]].
+
+but I need to redefine the way it exports equations
+
+So I change the =translate-alist= to include something additional for equations. But I
+don't know how to figure out the right "key" for a latex chunk, and how to get its
+contents. I need to better understand what the =translate-alist= is actually doing.
+
+[[file:~/.emacs.d/elpa/ox-gfm-1.0/ox-gfm.el:::translate-alist%20'((inner-template%20.%20org-gfm-inner-template)%20(paragraph%20.%20org-gfm-paragraph)%20(strike-through%20.%20org-gfm-strike-through)%20(src-block%20.%20org-gfm-src-block)%20(table-cell%20.%20org-gfm-table-cell)%20(table-row%20.%20org-gfm-table-row)%20(table%20.%20org-gfm-table)))][See this code.]]
+
+second level shit
+
+how about _underlined stuff_ 
+
+how about /italicized stuff/
+
+how about *bolded stuff*
+
+How about footnotes?[fn:1] 
+
+** Here's some content
+
+third level shit
+
+[[https://google.com][here's a link]]
+
+Here's an equation:
+
+$$ f(x) = \oint g(p) dp $$
+
+Here's some inline math: $x = y^2$.
+
+The problem is that it renders =\[=, when markdown needs it to render =\\[=. The former just
+renders to an open square bracket in the HTML. 
+
+
+* Does code work?
+
+
+#+BEGIN_SRC python
+import numpy as np
+np.min(x for x in range(10))  
+#+END_SRC
+
+* Here's a table
+
+| Name               | Age | Phone |
+|--------------------+-----+-------|
+| Peter Wills        |  31 |   585 |
+| Kathleen Finlinson |  29 |   435 |
+
+Okay looks pretty good there.
+
+* Footnotes
+
+[fn:1] Schwink!
+
+
