@@ -673,7 +673,7 @@ keep learning from your mistakes. Good luck!
 
 [^fnote_linked]: I'm glossing over some details here - the numbers I quote above are for
     a fixed-size array. So, if you build up an array by adding elements at the end, it
-    may seem like you get to just do a bunch of $$\matlcah{O}(1)$$ `.append`s, but in
+    may seem like you get to just do a bunch of $$\mathcal{O}(1)$$ `.append`s, but in
     reality, you have to occasionally resize the array to make more space, which slows
     things down to an average append time of $$\mathcal{O}(n)$$. If you want a list-like
     type where inserting elements is easy ($$\mathcal{O}(1)$$) but accessing elements is
