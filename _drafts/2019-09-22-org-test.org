@@ -1,10 +1,10 @@
+#+TITLE: Org Test
+#+SUBTITLE: Testing out stuff for org blogging.
+#+DATE: 2019-09-22
+
 #+STARTUP: showall indent
 #+OPTIONS: toc:nil 
 #+OPTIONS: tex:t
-
-#+TITLE: Blogging in Org
-#+SUBTITLE: My workflow for blogging in org mode.
-#+DATE: 2019-09-22
 
 Basic idea is to rework [[file:~/.emacs.d/lisp/ox-jekyll-md/ox-jekyll-md.el::;;;%20ox-jekyll-md.el%20---%20Export%20Jekyll%20on%20Markdown%20articles%20using%20org-mode.%20-*-%20lexical-binding:%20t;%20-*-][ox-jekyll]] to fit my purposes. It's derived from ox-md which is
 derived from ox-html.
@@ -15,7 +15,7 @@ derived from ox-html.
 
 [[https://github.com/emacsmirror/org/blob/master/lisp/ox-html.el][ox-html source code]]
 
-* TODO [5/7]
+* TODO [7/7]
 SCHEDULED: <2019-09-21 Sat>
 
 Schedules get ignored, which is correct. Can schedule or deadline parts of the post if
@@ -23,16 +23,34 @@ you want to.
 
 - [X] Fix underlining things
 - [X] Fix links
-- [ ] Fix equation delimiter rendering
+- [X] *Fix equation delimiter rendering*
 - [X] Ignore =ltximg= directories
 - [X] Get preamble export working
   - [X] Pass subtitle in as excerpt
   - [X] Set category as "post", don't set layout
-- [X] Get footnotes exporting properly 
-- [ ] Insert disqus block at bottom of the page (or better yet, get disqus working as it should via jekyll)
+- [X] Get footnotes exporting properly
+- [X] Make images export properly. 
 
-Might put off the footnotes one, since it's mostly asthetic. Equation rendering is the
-top priority at the moment.
+* TODO Eventually
+
+- [ ] Have =RESULTS= blocks from org-babel render in some nice way
+- [ ] Minor mode that exports whenever I save, as long as I'm in =_drafts= or =_posts=.
+- [ ] set =OPTIONS: comments:nil= and it will appear in the yaml front-matter
+
+** Fixing Images
+
+Right now they just get treated like any other link. Also, the link gets prepended with
+a full path, beginning with =file://=, which is /not/ what we want; we just want the
+_relative_ path from here to the image. What if I just type that in directly?
+
+Well, it's actually kind of complicated. What I really want to do is to have a function
+that looks at links and strips them down to absolute paths, when appropriate.
+
+Okay so take a look at =ox-hugo-link= ([[https://github.com/kaushalmodi/ox-hugo/blob/master/ox-hugo.el#L1963][code here]]) for an example of a function that parses
+links. We want something much simpler - it should check whether the link is an image,
+and prepend an =!= if so; also, it should look at the path and determine how to strip it
+down to the appropriate relative path so that it treats the jekyll root like the true
+root.
 
 ** Fixing Equations
 
@@ -47,11 +65,6 @@ thing that specifically handles http links in there.
 
 UPDATE: Actually, you can just write your links as =https://= instead of =https:=, and then
 it works fine. I will start doing this in general, I think.
-
-** Comments in Disqus
-
-Right now we put a phat HTML blob at the bottom of the page. This is, obviously, less
-than ideal.
 
 * Blogging in Org!
 
@@ -83,21 +96,32 @@ third level shit
 
 Here's an equation:
 
-$$ f(x) = \oint g(p) dp $$
+$$ x = \sum_{n=1}^\infty \left(\frac{1}{n \log n}\right) $$
 
 Here's some inline math: $x = y^2$.
 
-The problem is that it renders =\[=, when markdown needs it to render =\\[=. The former just
-renders to an open square bracket in the HTML. 
-
-
 * Does code work?
-
 
 #+BEGIN_SRC python
 import numpy as np
 np.min(x for x in range(10))  
 #+END_SRC
+
+#+BEGIN_SRC bash
+ls -alFh
+pip list | grep lachesis
+#+END_SRC
+
+#+BEGIN_SRC ipython :async t :results drawer :session
+import numpy as np
+min(np.sin(x) for x in np.linspace(0,2*np.pi,100)) 
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[3]:
+: -0.9998741276738751
+:END:
 
 * Here's a table
 
@@ -107,6 +131,10 @@ np.min(x for x in range(10))
 | Kathleen Finlinson |  29 |   435 |
 
 Okay looks pretty good there.
+
+* Images?
+
+[[file:~/code/jekyll/peterewills.github.io/assets/images/kitties.jpg][kitties!]]
 
 * Footnotes
 

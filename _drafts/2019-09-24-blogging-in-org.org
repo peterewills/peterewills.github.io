@@ -1,0 +1,75 @@
+#+TITLE: Blogging in Org Mode
+#+SUBTITLE: My workflow for blogging in org mode, with jekyll and org-export.
+#+DATE: 2019-09-24
+
+#+STARTUP: showall indent
+#+OPTIONS: toc:nil 
+#+OPTIONS: tex:t
+
+I recently transitioned from writing my posts directly in markdown to writing them in
+[[https://orgmode.org/][org mode]], a document authoring system built in GNU Emacs. I learned a lot in the
+process, and wanted to share some of the techniques and tools I cobbled together in a
+post. 
+
+* Org Mode and the Meaning of Life
+
+** What is Org Mode?
+
+Laozi said that the Tao that can be told is not the eternal Tao; I think we can safely
+say the same of org mode. It is many things to many people, and honestly I'm only
+familiar with one tiny corner of it.
+
+** Why Not Markdown?
+
+Include some nice pics of
+
+- inline images
+- latex rendering
+- bold, underlined, italic text
+- folded and unfolded sections
+- code syntax highlighting
+- tables
+- footnotes
+
+
+* Org-Export and Jekyll
+
+** Blogging in Jekyll
+
+Link to previous post
+
+Mention Hugo & Pelican for comparison
+
+** Org-Export
+
+Discuss =ox-jekyll-md= and =ox-hugo=
+
+** Building =ox-jekyll-lite=
+
+*** Customizing an Org Export Backend
+
+*** Implementation Details for =ox-jekyll-lite=
+
+- making links relative to jekyll root
+- footnotes and stuff
+- equation rendering
+
+* My Blogging Workflow
+
+- Have brilliant idea for a post
+- Make an org file
+- export to markdown via =C-c C-e j j=
+- commit & push
+- profit!
+
+Don't forget to mention:
+- gotta exclude =ltximg= and =*.org= in jekyll config yaml
+
+* Conclusion
+
+If you're starting fresh & love org, use ox-hugo
+
+Otherwise, this is a reaosnable solution. Would probably work fine with pelican as
+well. (just modify the header stuff)
+
+Explore more in org mode! Mention org-babel. 
