@@ -101,7 +101,7 @@ LaTeX with =\\[= and =\\]=, whereas HTML only requires a single slash.[fn:1]
 A quick search will show that there are many tools built to address this problem. Org
 exporter backends are designed to be easy to extend, and many users have extended the
 markdown backend to work with specific static site generators. The most fully developed
-of these is [[https://ox-hugo.scripter.co/][=ox-hugo=]],[fn:2] which is built to work with the site generator Hugo. This
+of these is [[https://ox-hugo.scripter.co/][=ox-hugo=]], which is built to work with the site generator Hugo. This
 package in particular would be a big source of the transcoding functions I would use,
 but since it is built to be tightly integrated with Hugo, I couldn't just use it out of
 the box.
@@ -249,9 +249,6 @@ interwoven with documentation, which I think is a really nice paradigm, and for 
 org is a natural fit.
 
 [fn:3] This is actually a lie; I don't make any money from this site.
-
-[fn:2] =ox-hugo= is designed for a slightly different workflow than mine, in which the
-entire _site_ is in a single org file.
 
 [fn:1] The double slash is required because markdown interprets the first slash as an
 escape character.

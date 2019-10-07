@@ -105,7 +105,7 @@ LaTeX with `\\[` and `\\]`, whereas HTML only requires a single slash.[^fn2]
 A quick search will show that there are many tools built to address this problem. Org
 exporter backends are designed to be easy to extend, and many users have extended the
 markdown backend to work with specific static site generators. The most fully developed
-of these is [`ox-hugo`](https://ox-hugo.scripter.co/),[^fn3] which is built to work with the site generator Hugo. This
+of these is [`ox-hugo`](https://ox-hugo.scripter.co/), which is built to work with the site generator Hugo. This
 package in particular would be a big source of the transcoding functions I would use,
 but since it is built to be tightly integrated with Hugo, I couldn't just use it out of
 the box.
@@ -181,7 +181,7 @@ directory of Jekyll, when possible. For example, if you have an image in your
 with the full path relative to the root directory of your computer's filesystem.
 
 However, when I use `C-c C-l` (along with Helm) to add a link to an org file, it renders
-the link with the absolute path.[^fn4] It's important that the link is "correct" for my
+the link with the absolute path.[^fn3] It's important that the link is "correct" for my
 machine, so that any images can render inline, and the links are clickable by me when
 from my orgfile. But if the links are relative to my filesystem's root in the markdown,
 then they won't work within the context of my site. So, we need to "fix" the links as we
@@ -216,7 +216,7 @@ Now, my workflow for writing a post is pretty simple.
 3.  Write brilliant words/equations/cat pictures/etc.
 4.  Export to markdown via `C-c C-e j j`
 5.  Commit & push to GitHub
-6.  Profit![^fn5]
+6.  Profit![^fn4]
 
 The only additional complication, compared to a pure-markdown workflow, is the addition
 of the export step; other than that, it's identical. And now I can blog in wonderful,
@@ -243,14 +243,13 @@ always submit an issue on GitHub and I'll see if I can help you out.
 
 I hope this post has inspired you to explore more in org mode! It's a great tool for
 organizing notes, tracking agendas/calendars/TODO lists, and for general
-writing.[^fn6] Happy blogging, and may the org be with you!
+writing.[^fn5] Happy blogging, and may the org be with you!
 
 
 <!----- Footnotes ----->
 
 [^fn1]: As I explain later on, this tool was based on both [`ox-jekyll-md`](https://github.com/gonsie/ox-jekyll-md) and [`ox-hugo`](https://ox-hugo.scripter.co/).
 [^fn2]: The double slash is required because markdown interprets the first slash as an escape character.
-[^fn3]: `ox-hugo` is designed for a slightly different workflow than mine, in which the entire <u>site</u> is in a single org file.
-[^fn4]: You can see an example of adding a link to an image in the org-mode demo video linked above.
-[^fn5]: This is actually a lie; I don't make any money from this site.
-[^fn6]: There's also the entire subject of [literate programming](http://cachestocaches.com/2018/6/org-literate-programming/), in which code is interwoven with documentation, which I think is a really nice paradigm, and for which org is a natural fit.
+[^fn3]: You can see an example of adding a link to an image in the org-mode demo video linked above.
+[^fn4]: This is actually a lie; I don't make any money from this site.
+[^fn5]: There's also the entire subject of [literate programming](http://cachestocaches.com/2018/6/org-literate-programming/), in which code is interwoven with documentation, which I think is a really nice paradigm, and for which org is a natural fit.
