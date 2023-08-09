@@ -1,5 +1,5 @@
 #+TITLE: Human-in-the-Loop ML
-#+SUBTITLE: A powerful paradigm for ML system
+#+SUBTITLE: A powerful paradigm for ML systems
 #+DATE: 2023-08-08
 
 #+STARTUP: showall indent
@@ -39,7 +39,7 @@ bootstrapping strategy I will discuss later on.
 
 Of course, adding a human into an automated system will have dramatic impacts on
 *latency*. A low-latency machine-learning system can return results in milliseconds; most
-human-based systems will have SLAs on the order of hours. For applications like online
+human-based systems will have SLAs[fn:4] on the order of hours. For applications like online
 ad serving, which must entirely run within the time a webpage loads, human intervention
 is therefore a non-starter. However, for applications like content moderation, where
 accuracy trumps latency concerns, human intervention can be very useful. A hybrid
@@ -148,6 +148,9 @@ stage of growth, from pre-seed to post-IPO. It is a tool that, in my opinion, ev
 technology strategist should have in their toolkit.
 
 * Footnotes
+[fn:4] [[https://www.cio.com/article/274740/outsourcing-sla-definitions-and-solutions.html][Service-level agreements]], which "defines the level of service expected by a
+customer from a supplier"; in this case, the "level of service" refers to the latency of
+a system.
 
 [fn:3] Read: always.
 

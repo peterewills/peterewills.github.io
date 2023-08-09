@@ -1,6 +1,6 @@
 ---
 title: "Human-in-the-Loop ML"
-excerpt: "A powerful paradigm for ML system"
+excerpt: "A powerful paradigm for ML systems"
 date: 2023-08-08
 categories: 
 - post
@@ -40,7 +40,7 @@ bootstrapping strategy I will discuss later on.
 
 Of course, adding a human into an automated system will have dramatic impacts on
 **latency**. A low-latency machine-learning system can return results in milliseconds; most
-human-based systems will have SLAs on the order of hours. For applications like online
+human-based systems will have SLAs[^fn1] on the order of hours. For applications like online
 ad serving, which must entirely run within the time a webpage loads, human intervention
 is therefore a non-starter. However, for applications like content moderation, where
 accuracy trumps latency concerns, human intervention can be very useful. A hybrid
@@ -56,7 +56,7 @@ passes through, and a customer demands an explanation, human filtering can preve
 embarassing situations where the output of the ML system seems obviously wrong to a
 human, but we cannot explain why the system made the judgement it did. (This can be more
 than embarassing; a handful of such incidents can be enough to drive away customers and
-hurt the market's perception of the product.)[^fn1]
+hurt the market's perception of the product.)[^fn2]
 
 
 # How do you incorporate humans into your ML system?
@@ -84,7 +84,7 @@ from a fully automated ML system.
 
 A alternative is to have an ML system that generates outputs that are sent to the user,
 and then verified by human agents some time later. For example, YouTube might run a
-system that detects whether a video should be removed from the site.[^fn2] It can
+system that detects whether a video should be removed from the site.[^fn3] It can
 immediately remove the video based on the system's output, and then later have the video
 undergo human review. This review could result in the video being reinstated if it is
 determined to be appropriate.
@@ -144,7 +144,7 @@ incorporating humans into ML systems can enable such work and be a win-win.
 
 # Conclusion
 
-Going from "we could solve this with ML!" to an actually-viable product is often[^fn3] a
+Going from "we could solve this with ML!" to an actually-viable product is often[^fn4] a
 bumpy road. Incorporating human feedback into an automated system is a key tool to help
 ease this transition. I don't have any easy recommendations here; whether and how you
 should incorporate human input into your particular product is highly dependent on the
@@ -157,6 +157,7 @@ technology strategist should have in their toolkit.
 
 <!----- Footnotes ----->
 
-[^fn1]: Even if a model is more accurate than the human-only alternative, explainability can still be an important psychological issue for customers. Consider a driverless car that has accident rates 1/10th those of an average driver; however, when it does crash, it does so seemingly at random. Public perception and adoption of such a product would (I predict) be poor, since when we are in such critical situations, we often rely on explanations to feel safe and in-control. Note that this may be less of an issue for internal-use models, where adoption can be decreed by management, and not driven by user perception.
-[^fn2]: I'm not saying this is what YouTube actually does. This is just an example.
-[^fn3]: Read: always.
+[^fn1]: [Service-level agreements](https://www.cio.com/article/274740/outsourcing-sla-definitions-and-solutions.html), which "defines the level of service expected by a customer from a supplier"; in this case, the "level of service" refers to the latency of a system.
+[^fn2]: Even if a model is more accurate than the human-only alternative, explainability can still be an important psychological issue for customers. Consider a driverless car that has accident rates 1/10th those of an average driver; however, when it does crash, it does so seemingly at random. Public perception and adoption of such a product would (I predict) be poor, since when we are in such critical situations, we often rely on explanations to feel safe and in-control. Note that this may be less of an issue for internal-use models, where adoption can be decreed by management, and not driven by user perception.
+[^fn3]: I'm not saying this is what YouTube actually does. This is just an example.
+[^fn4]: Read: always.
