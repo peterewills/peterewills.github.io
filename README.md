@@ -1,29 +1,26 @@
-# pwills.com
+# Artemis Terminal Chat
 
-Source for [pwills.com][4], hosted on GitHub Pages. Functions as an online
-resume/portfolio, as well as a place for me to rant & rave about technology and
-math. 
+A simple terminal-style React chatbot interface for the Artemis API.
 
-To build the site locally, do
+## Development
 
-	git clone https://github.com/peterewills/peterewills.github.io.git
-	cd peterewills.github.io
-    gem install bundler # to get the dependency manager that jekyll uses
-	bundle update # to make sure all ruby gems are up to date
-	bundle exec jekyll serve
-	
-Then navigate to `localhost:4000` in your browser to view the page.
+1. Install dependencies:
+```bash
+npm install
+```
 
-For a more detailed guide on how the site was built, check out [the how-to post
-on the blog][5]
+2. Start development server:
+```bash
+npm start
+```
 
-Site is built in jekyll on top of [Minimal Mistakes][1]. Uses images from
-[Unsplash][2]. If you have questions, drop me a line at [peter@pwills.com](mailto:peter@pwills.com).
+3. Build for production:
+```bash
+npm run build
+```
 
-[1]: https://github.com/mmistakes/minimal-mistakes
+This will create the production build in the `docs` folder, which GitHub Pages will serve automatically.
 
-[2]: https://unsplash.com/
+## Deployment
 
-[4]: http://www.pwills.com
-
-[5]: http://www.pwills.com/blog/posts/2017/12/20/website.html
+Just push to GitHub - the site will be automatically deployed from the `docs` folder.

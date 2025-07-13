@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #3F3F3F;
+  color: #FFFFEF;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+.terminal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #3F3F3F;
+}
+
+.terminal-header {
+  padding: 10px 20px;
+  background-color: #3F3F3F;
+  border-bottom: 1px solid #6F6F6F;
+  font-size: 14px;
+  color: #7F9F7F;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resume-link {
+  color: #8CD0D3;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.resume-link:hover {
+  color: #93E0E3;
+  text-decoration: underline;
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: #3F3F3F;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: #6F6F6F;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+  background: #8CD0D3;
+}
+
+.splash-screen {
+  margin-bottom: 20px;
+}
+
+.ascii-art {
+  color: #DFAF8F;
+  font-size: 14px;
+  line-height: 1.2;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre;
+  overflow-x: auto;
+  margin-bottom: 0;
+}
+
+.splash-message {
+  color: #FFFFEF;
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre;
+  margin: 0;
+}
+
+.resume-prompt {
+  color: #FFFFEF;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.inline-resume-link {
+  color: #8CD0D3;
+  text-decoration: underline;
+}
+
+.inline-resume-link:hover {
+  color: #93E0E3;
+}
+
+.history-item {
+  margin-bottom: 10px;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
+}
+
+.input-line.active {
+  margin-top: 10px;
+}
+
+.prompt {
+  color: #93E0E3;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.input-text {
+  color: #FFFFEF;
+}
+
+.output-text {
+  color: #DFAF8F;
+  margin-left: 20px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.error-text {
+  color: #CC9393;
+  margin-left: 20px;
+  font-style: italic;
+}
+
+.cursor {
+  color: #8CD0D3;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #FFFFEF;
+  font-family: inherit;
+  font-size: 16px;
+  caret-color: #8CD0D3;
+}
