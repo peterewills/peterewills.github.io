@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import MarkdownRenderer from './MarkdownRenderer';
 
 const Terminal = () => {
   const [history, setHistory] = useState([]);
@@ -6,6 +7,17 @@ const Terminal = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const terminalRef = useRef(null);
   const inputRef = useRef(null);
+
+  const getEndpoint = () => {
+    // Check if we're in development mode or if local flag is set
+    const useLocal = (typeof process !== 'undefined' && process.env && process.env.REACT_APP_ARTEMIS_USE_LOCAL_ENDPOINT === 'true') ||
+                     window.location.hostname === 'localhost' ||
+                     window.location.hostname === '127.0.0.1';
+    
+    return useLocal 
+      ? 'http://localhost:8000/api/chat'
+      : 'https://artemis-production-9690.up.railway.app/api/chat';
+  };
 
   const scrollToBottom = () => {
     if (terminalRef.current) {
@@ -40,7 +52,8 @@ const Terminal = () => {
       }));
 
     try {
-      const response = await fetch('https://artemis-production-9690.up.railway.app/api/chat', {
+      console.log('Connecting to:', getEndpoint());
+      const response = await fetch(getEndpoint(), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,8 +64,9 @@ const Terminal = () => {
         }),
       });
 
+      console.log('Response status:', response.status, response.statusText);
       if (!response.ok) {
-        throw new Error('Failed to get response');
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
 
       const reader = response.body.getReader();
@@ -94,10 +108,10 @@ const Terminal = () => {
         return newHistory;
       });
     } catch (error) {
-      console.error('Error:', error);
+      console.error('API Error:', error);
       setHistory(prev => [...prev, {
         type: 'error',
-        content: 'Error: Failed to connect to Artemis API'
+        content: `Error: ${error.message || 'Failed to connect to Artemis API'}`
       }]);
     } finally {
       setIsProcessing(false);
@@ -125,13 +139,17 @@ const Terminal = () => {
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ARTEMIS is an AI agent that leverages multiple tools and data sources
-to provide comprehensive information about Dr. Peter Wills.
+to provide comprehensive information about Peter Wills, Ph.D.
 
 Available capabilities:
  • Professional background analysis
  • Technical expertise assessment
  • Project portfolio exploration
  • Real-time information synthesis
+
+Example queries:
+ • "Tell me about Peter's research."
+ • "What were Peter's responsibilities while working at Stitch Fix?"
 
 Type your query and press Enter to begin.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -165,7 +183,7 @@ Type your query and press Enter to begin.
             )}
             {item.type === 'output' && (
               <div className="output-text">
-                {item.content}
+                <MarkdownRenderer content={item.content} />
                 {item.isStreaming && <span className="cursor">▌</span>}
               </div>
             )}

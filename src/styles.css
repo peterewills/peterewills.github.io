@@ -133,7 +133,7 @@ body {
 }
 
 .output-text {
-  color: #DFAF8F;
+  color: #FFFFEF;
   margin-left: 20px;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -164,4 +164,63 @@ body {
   font-family: inherit;
   font-size: 16px;
   caret-color: #8CD0D3;
+}
+
+/* Markdown styles */
+.md-line {
+  display: inline;
+}
+
+/* Tool use indicator styling */
+.md-tool-line {
+  color: #DFAF8F !important;
+  font-weight: bold;
+}
+
+.md-empty {
+  height: 1em;
+}
+
+.md-bold {
+  font-weight: bold;
+  color: #F0DFAF;
+}
+
+.md-italic {
+  font-style: italic;
+  color: #DFAF8F;
+}
+
+.md-underline {
+  text-decoration: underline;
+  text-decoration-color: #8CD0D3;
+  text-underline-offset: 2px;
+}
+
+.md-code {
+  background-color: #4F4F4F;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: #93E0E3;
+}
+
+.md-list {
+  margin: 0.5em 0;
+}
+
+.md-list-item {
+  display: flex;
+  align-items: flex-start;
+  margin: 0.2em 0;
+}
+
+.md-list-marker {
+  color: #8CD0D3;
+  margin-right: 0.5em;
+  flex-shrink: 0;
+}
+
+.md-list-content {
+  flex: 1;
 }

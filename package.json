@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "start": "webpack serve --mode development",
+    "start:local": "REACT_APP_ARTEMIS_USE_LOCAL_ENDPOINT=true webpack serve --mode development",
     "build": "webpack --mode production",
     "watch": "webpack --watch --mode development"
   },
