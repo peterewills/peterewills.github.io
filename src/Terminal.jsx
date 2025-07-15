@@ -9,14 +9,21 @@ const Terminal = () => {
   const inputRef = useRef(null);
 
   const getEndpoint = () => {
-    // Check if we're in development mode or if local flag is set
-    const useLocal = (typeof process !== 'undefined' && process.env && process.env.REACT_APP_ARTEMIS_USE_LOCAL_ENDPOINT === 'true') ||
-                     window.location.hostname === 'localhost' ||
-                     window.location.hostname === '127.0.0.1';
+    // Check for force remote flag in URL params
+    const urlParams = new URLSearchParams(window.location.search);
+    const forceRemote = urlParams.get('remote') === 'true';
+    
+    // Check if we're in development mode
+    const isDevelopment = window.location.hostname === 'localhost' ||
+                          window.location.hostname === '127.0.0.1';
 
-    return useLocal
-      ? 'http://localhost:8000/api/chat'
-      : 'https://artemis-production-9690.up.railway.app/api/chat';
+    // Use remote API if forced or in production
+    if (forceRemote || !isDevelopment) {
+      return 'https://artemis-production-9690.up.railway.app/api/chat';
+    }
+    
+    // Otherwise use local API
+    return 'http://localhost:8000/api/chat';
   };
 
   const scrollToBottom = () => {
@@ -55,8 +62,9 @@ const Terminal = () => {
       console.log('Connecting to:', getEndpoint());
       const response = await fetch(getEndpoint(), {
         method: 'POST',
+        mode: 'cors',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           messages: [...messages, { role: 'user', content: userMessage }],
@@ -108,10 +116,24 @@ const Terminal = () => {
         return newHistory;
       });
     } catch (error) {
-      console.error('API Error:', error);
+      console.error('API Error details:', {
+        message: error.message,
+        name: error.name,
+        stack: error.stack,
+        endpoint: getEndpoint(),
+        type: error.constructor.name
+      });
+      
+      // More detailed error message
+      let errorMessage = error.message || 'Failed to connect to Artemis API';
+      if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
+        const endpoint = getEndpoint();
+        errorMessage = `Failed to fetch from ${endpoint}\nPossible causes:\n- CORS blocking (check browser console)\n- Network issues\n- Server unreachable`;
+      }
+      
       setHistory(prev => [...prev, {
         type: 'error',
-        content: `Error: ${error.message || 'Failed to connect to Artemis API'}`
+        content: `Error: ${errorMessage}`
       }]);
     } finally {
       setIsProcessing(false);
@@ -125,23 +147,29 @@ const Terminal = () => {
   };
 
   const asciiArt = `
- ░▒▓██████▓▒░░▒▓███████▓▒░▒▓████████▓▒░▒▓████████▓▒░▒▓██████████████▓▒░░▒▓█▓▒░░▒▓███████▓▒░
-░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░   ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░
-░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░   ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░
-░▒▓████████▓▒░▒▓███████▓▒░  ░▒▓█▓▒░   ░▒▓██████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓██████▓▒░
-░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░   ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░
-░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░   ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░
-░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░   ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓███████▓▒░
+ ________  ________  _________  _______   _____ ______   ___  ________
+|\\   **  \\|\\   **  \\|\\___   ___\\\\  ___ \\ |\\   * \\  *   \\|\\  \\|\\   ____\\
+\\ \\  \\|\\  \\ \\  \\|\\  \\|___ \\  \\_\\ \\   **/|\\ \\  \\\\\\**\\ \\  \\ \\  \\ \\  \\___|_
+ \\ \\   __  \\ \\   *  *\\   \\ \\  \\ \\ \\  \\_|/_\\ \\  \\\\|__| \\  \\ \\  \\ \\_____  \\
+  \\ \\  \\ \\  \\ \\  \\\\  \\|   \\ \\  \\ \\ \\  \\_|\\ \\ \\  \\    \\ \\  \\ \\  \\|____|\\  \\
+   \\ \\__\\ \\__\\ \\__\\\\ *\\    \\ \\*_\\ \\ \\_______\\ \\__\\    \\ \\__\\ \\__\\____\\_\\  \\
+    \\|__|\\|__|\\|__|\\|__|    \\|__|  \\|_______|\\|__|     \\|__|\\|__|\\_________\\
+                                                                \\|_________|
 `;
 
   const splashMessage = `
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Artemis is an AI agent that leverages multiple tools and data sources to provide
-comprehensive information about Peter Wills, Ph.D.
+Hi! My name is Peter. I'm a machine learning engineer specializing in agentic systems,
+full-stack machine learning, software engineering, and statistics.
 
-Peter is a machine learning engineer specializing in agentic systems, full-stack machine
-learning, software engineering, and statistics.
+I built Artemis as a fun way to demonstrate an AI agent that uses tools. I think this
+paradigm is the direction data science as a whole is heading - not that classical DS &
+ML will go away, but the outputs of those pipelines will be consumed by agents who will
+then surface insights.
+
+Of course, this is entirely unnecessary. But hey - better than another engineering blog
+no one reads.
 
 Available capabilities:
  • Professional background analysis
@@ -150,7 +178,8 @@ Available capabilities:
  • Real-time information synthesis
 
 Example queries:
- • "Tell me about Peter's research."
+ • "Tell me about Peter!"
+ • "What was Peter's research about?"
  • "What were Peter's responsibilities while working at Stitch Fix?"
 
 Type your query and press Enter to begin.
@@ -171,7 +200,7 @@ Type your query and press Enter to begin.
             <pre className="ascii-art">{asciiArt}</pre>
             <pre className="splash-message">{splashMessage}</pre>
             <div className="resume-prompt">
-              To view Peter's resume directly, <a href="/resources/resume.pdf" className="inline-resume-link" target="_blank" rel="noopener noreferrer">click here</a>
+                (If you'd rather just view my resume, <a href="/resources/resume.pdf" className="inline-resume-link" target="_blank" rel="noopener noreferrer">click here</a>.)
             </div>
           </div>
         )}
