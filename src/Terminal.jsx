@@ -13,8 +13,8 @@ const Terminal = () => {
     const useLocal = (typeof process !== 'undefined' && process.env && process.env.REACT_APP_ARTEMIS_USE_LOCAL_ENDPOINT === 'true') ||
                      window.location.hostname === 'localhost' ||
                      window.location.hostname === '127.0.0.1';
-    
-    return useLocal 
+
+    return useLocal
       ? 'http://localhost:8000/api/chat'
       : 'https://artemis-production-9690.up.railway.app/api/chat';
   };
@@ -135,11 +135,13 @@ const Terminal = () => {
 `;
 
   const splashMessage = `
- Agentic Research & Tool-Enhanced Machine Intelligence System
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-ARTEMIS is an AI agent that leverages multiple tools and data sources
-to provide comprehensive information about Peter Wills, Ph.D.
+Artemis is an AI agent that leverages multiple tools and data sources to provide
+comprehensive information about Peter Wills, Ph.D.
+
+Peter is a machine learning engineer specializing in agentic systems, full-stack machine
+learning, software engineering, and statistics.
 
 Available capabilities:
  • Professional background analysis
