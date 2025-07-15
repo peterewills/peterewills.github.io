@@ -23,4 +23,13 @@ This will create the production build in the `docs` folder, which GitHub Pages w
 
 ## Deployment
 
-Just push to GitHub - the site will be automatically deployed from the `docs` folder.
+The site is served from the `docs/` directory. Before committing changes:
+
+1. Run the build command:
+```bash
+npm run build
+```
+
+2. Commit both your source changes and the updated `docs/` folder
+
+3. Push to GitHub - the site will be automatically deployed from the `docs` folder.
