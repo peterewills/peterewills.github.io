@@ -190,9 +190,6 @@ Type your query and press Enter to begin.
     <div className="terminal">
       <div className="terminal-header">
         <span>artemis@zenburn ~ $</span>
-        <a href="/resources/resume.pdf" className="resume-link" target="_blank" rel="noopener noreferrer">
-          Resume →
-        </a>
       </div>
       <div className="terminal-body" ref={terminalRef}>
         {history.length === 0 && (
@@ -200,7 +197,7 @@ Type your query and press Enter to begin.
             <pre className="ascii-art">{asciiArt}</pre>
             <pre className="splash-message">{splashMessage}</pre>
             <div className="resume-prompt">
-                (If you'd rather just view my resume, <a href="/resources/resume.pdf" className="inline-resume-link" target="_blank" rel="noopener noreferrer">click here</a>.)
+                (View my <a href="/resources/resume.pdf" className="inline-resume-link" target="_blank" rel="noopener noreferrer">resume</a> or browse my resources in the sidebar →)
             </div>
           </div>
         )}
