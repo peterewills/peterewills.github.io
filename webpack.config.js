@@ -37,7 +37,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'resources', to: 'resources' }
+        { from: 'resources', to: 'resources' },
+        { from: 'CNAME', to: 'CNAME', noErrorOnMissing: true }
       ]
     })
   ],
