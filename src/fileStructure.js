@@ -2,7 +2,6 @@
 // Do not edit manually - run 'npm run generate-files' to update
 
 export const fileStructure = {
-  "terminal": "terminal",
   "resume.pdf": "/resources/resume.pdf",
   "ds-study-guide": {
     "eng.md": "/resources/ds-study-guide/eng.md",

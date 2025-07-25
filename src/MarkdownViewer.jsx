@@ -16,7 +16,9 @@ const MarkdownViewer = ({ filePath }) => {
 
     // Handle PDF files
     if (filePath.endsWith('.pdf')) {
-      window.open(filePath, '_blank');
+      // Remove leading slash to make path relative
+      const relativePath = filePath.startsWith('/') ? filePath.substring(1) : filePath;
+      window.open(relativePath, '_blank');
       setContent('Opening PDF in new tab...');
       setLoading(false);
       return;

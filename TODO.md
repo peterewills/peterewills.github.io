@@ -21,3 +21,5 @@
 
 ### Known Issues
 - iframe isn't rendering in blogging-in-org.md despite being properly parsed
+- gifs aren't appearing in p-values post
+- now deployment is totally broken :(
