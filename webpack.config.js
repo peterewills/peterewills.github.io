@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
@@ -41,6 +42,10 @@ module.exports = {
       patterns: [
         { from: 'resources', to: 'resources' }
       ]
+    }),
+    new webpack.DefinePlugin({
+      'process.env.REACT_APP_ARTEMIS_API_KEY': JSON.stringify(process.env.REACT_APP_ARTEMIS_API_KEY),
+      'process.env.REACT_APP_ARTEMIS_USE_LOCAL_ENDPOINT': JSON.stringify(process.env.REACT_APP_ARTEMIS_USE_LOCAL_ENDPOINT)
     })
   ],
   devServer: {
