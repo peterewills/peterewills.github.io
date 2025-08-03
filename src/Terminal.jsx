@@ -168,8 +168,6 @@ const Terminal = () => {
 `;
 
   const splashMessage = `
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 Hi! My name is Peter. I'm a machine learning engineer specializing in agentic systems,
 full-stack machine learning, software engineering, and statistics.
 
@@ -194,11 +192,7 @@ Example queries:
  • "Tell me about Peter!"
  • "Tell me about your architecture."
  • "What was Peter's research about?"
- • "What were Peter's responsibilities while working at Stitch Fix?"
-
-Type your query and press Enter to begin.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-`;
+ • "What were Peter's responsibilities while working at Stitch Fix?"`;
 
   return (
     <div className="terminal">
@@ -209,10 +203,14 @@ Type your query and press Enter to begin.
         {history.length === 0 && (
           <div className="splash-screen">
             <pre className="ascii-art">{asciiArt}</pre>
+            <div className="splash-divider">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
             <pre className="splash-message">{splashMessage}</pre>
             <div className="resume-prompt">
-                (View my <a href="/resources/resume.pdf" className="inline-resume-link" target="_blank" rel="noopener noreferrer">resume</a> or browse my resources in the sidebar →)
+                View my <a href="/resources/resume.pdf" className="inline-resume-link" target="_blank" rel="noopener noreferrer">resume</a> | 
+                Source code: <a href="https://github.com/peterewills/artemis" className="inline-resume-link" target="_blank" rel="noopener noreferrer">artemis backend</a> • <a href="https://github.com/peterewills/peterewills.github.io" className="inline-resume-link" target="_blank" rel="noopener noreferrer">frontend</a>
             </div>
+            <div className="splash-divider">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+            <div className="query-prompt">Type your query and press Enter to begin.</div>
           </div>
         )}
         {history.map((item, index) => (

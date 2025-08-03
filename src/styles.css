@@ -129,6 +129,20 @@ body {
   margin-bottom: 20px;
 }
 
+.splash-divider {
+  color: #FFFFEF;
+  font-size: 16px;
+  margin: 20px 0;
+  line-height: 1;
+}
+
+.query-prompt {
+  color: #FFFFEF;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .inline-resume-link {
   color: #8CD0D3;
   text-decoration: underline;
