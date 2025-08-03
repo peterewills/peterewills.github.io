@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import MarkdownRenderer from './MarkdownRenderer';
+import { API_CONFIG } from './config';
 
 const Terminal = () => {
   const [history, setHistory] = useState([]);
@@ -12,7 +13,7 @@ const Terminal = () => {
     // Check for force remote flag in URL params
     const urlParams = new URLSearchParams(window.location.search);
     const forceRemote = urlParams.get('remote') === 'true';
-    
+
     // Check if we're in development mode
     const isDevelopment = window.location.hostname === 'localhost' ||
                           window.location.hostname === '127.0.0.1';
@@ -21,7 +22,7 @@ const Terminal = () => {
     if (forceRemote || !isDevelopment) {
       return 'https://artemis-production-9690.up.railway.app/api/chat';
     }
-    
+
     // Otherwise use local API
     return 'http://localhost:8000/api/chat';
   };
@@ -64,7 +65,8 @@ const Terminal = () => {
         method: 'POST',
         mode: 'cors',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'X-API-Key': API_CONFIG.API_KEY
         },
         body: JSON.stringify({
           messages: [...messages, { role: 'user', content: userMessage }],
@@ -74,7 +76,15 @@ const Terminal = () => {
 
       console.log('Response status:', response.status, response.statusText);
       if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        let errorMessage = `HTTP ${response.status}: ${response.statusText}`;
+        if (response.status === 401) {
+          errorMessage = 'Authentication required - API key missing';
+        } else if (response.status === 403) {
+          errorMessage = 'Authentication failed - Invalid API key';
+        } else if (response.status === 429) {
+          errorMessage = 'Rate limit exceeded - Please wait a minute and try again';
+        }
+        throw new Error(errorMessage);
       }
 
       const reader = response.body.getReader();
@@ -123,14 +133,14 @@ const Terminal = () => {
         endpoint: getEndpoint(),
         type: error.constructor.name
       });
-      
+
       // More detailed error message
       let errorMessage = error.message || 'Failed to connect to Artemis API';
       if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
         const endpoint = getEndpoint();
         errorMessage = `Failed to fetch from ${endpoint}\nPossible causes:\n- CORS blocking (check browser console)\n- Network issues\n- Server unreachable`;
       }
-      
+
       setHistory(prev => [...prev, {
         type: 'error',
         content: `Error: ${errorMessage}`
@@ -168,6 +178,9 @@ paradigm is the direction data science as a whole is heading - not that classica
 ML will go away, but the outputs of those pipelines will be consumed by agents who will
 then surface insights.
 
+Artemis has introspective knowledge of its own architecture, so you can ask it directly
+if you are curious about how it is build or deployed.
+
 Of course, this is entirely unnecessary. But hey - better than another engineering blog
 no one reads.
 
@@ -179,6 +192,7 @@ Available capabilities:
 
 Example queries:
  • "Tell me about Peter!"
+ • "Tell me about your architecture."
  • "What was Peter's research about?"
  • "What were Peter's responsibilities while working at Stitch Fix?"
 

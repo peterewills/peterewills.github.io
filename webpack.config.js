@@ -7,7 +7,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'docs'),
     filename: 'bundle.js',
-    clean: true
+    clean: {
+      keep: /CNAME/
+    }
   },
   module: {
     rules: [
@@ -37,8 +39,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'resources', to: 'resources' },
-        { from: 'CNAME', to: 'CNAME', noErrorOnMissing: true }
+        { from: 'resources', to: 'resources' }
       ]
     })
   ],
