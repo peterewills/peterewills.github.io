@@ -90,8 +90,11 @@ const MarkdownRenderer = ({ content }) => {
   const parseMarkdown = (text) => {
     if (!text) return null;
 
+    // Normalize line endings (handle CRLF and CR)
+    const normalizedText = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+
     // First protect LaTeX blocks
-    const { text: protectedText, latexBlocks } = protectLatex(text);
+    const { text: protectedText, latexBlocks } = protectLatex(normalizedText);
 
     // Extract references from protected text
     const { content: cleanText, linkRefs, footnotes } = parseReferences(protectedText);
