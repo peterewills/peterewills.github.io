@@ -4,7 +4,6 @@
 * 4 lbs extra lean ground beef (90-93% lean)
 * 4 sweet onions, diced small
 * 2 Tbsp olive oil
-* Salt and black pepper to taste
 
 ## Aromatics & Vegetables
 * 10 cloves garlic, minced
@@ -18,6 +17,7 @@
 ## Liquids & Flavor Enhancers
 * 3 cups beef broth
 * 2 Tbsp Worcestershire sauce
+* 2 Tbsp maple syrup
 * 3-4 Tbsp apple cider vinegar
 * ½ tsp liquid smoke (adjust to taste)
 
@@ -31,15 +31,14 @@
 * 2 tsp cumin
 * 2 tsp smoked paprika
 * 2 tsp oregano
-* 2 tsp salt (plus extra to taste)
-* ¾ tsp cayenne pepper
+* 2 Tbsp salt, plus more to taste
+* ¾-1.5 tsp cayenne pepper
 * ¼-½ tsp cinnamon
 * ¼ tsp ground cloves (optional)
 * 1 tsp instant coffee (mixed with dry spices)
+* ½ tsp unsweetened cocoa powder (optional, for depth)
 * Black pepper to taste
 
-## Optional Sweetness Adjustment
-* 1-2 tsp maple syrup (optional, add at end if needed)
 
 ## Instructions
 
@@ -59,14 +58,19 @@
 
 8. Continue cooking until the chili reaches your desired consistency. If it's still too liquidy, you can leave the lid off for the final hour to allow it to reduce.
 
-9. Taste and adjust seasonings. Add brown sugar 1 tsp at a time if you'd like more sweetness, stirring well between additions.
+9. Taste and adjust seasonings. Add chipotle for kick; liquid smoke for smoke; maple syrup for sweetness.
 
 10. Serve hot. The chili tastes even better the next day as flavors continue to develop.
 
 **Serves:** 12-14 people (or great for freezing in portions)
 
+**Thoughts for next time:**
+- Consider doubling the cinnamon and adding hearty maple syrup for good sweetness to balance the smokiness.
+
 **Notes:**
 - The liquid smoke is potent; start with ½ tsp and adjust up if desired
-- The cinnamon adds warmth without being obvious—don't skip it
+- The cinnamon and optional cocoa powder add warmth and depth without being obvious—don't skip them.
 - This recipe develops great depth from the combination of smoked paprika, instant coffee, and liquid smoke
-- Maple syrup adds complexity to the sweetness; start with 1 tsp and adjust to taste
+- 2 Tbsp maple syrup provides the perfect balance of sweetness without overpowering the smoky elements
+- Start with 2 Tbsp salt and taste as you cook—you may want to add more depending on your broth and Worcestershire sauce saltiness
+- Cocoa powder (unsweetened) enhances the savory richness without adding sweetness; start with ½ tsp

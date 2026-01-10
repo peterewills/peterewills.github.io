@@ -1,4 +1,4 @@
-# High-Protein, Low-Calorie Beef Stew
+# Beef Stew
 
 Modified from NYT Cooking - Slow Oven Method
 
@@ -22,12 +22,11 @@ Modified from NYT Cooking - Slow Oven Method
 
 ## Vegetables
 
-* 1 medium onion, peeled and chopped
+* 4 large sweet onions, peeled and chopped
 * 5 medium carrots, peeled and cut into ¼-inch rounds
 * 3 celery stalks, chopped
-* 8 oz mushrooms, quartered
-* 3 cups cauliflower florets (divided: 1.5 cups for beginning, 1.5 cups for end)
-* 2 cups green beans, cut into 1-inch pieces
+* 16 oz mushrooms, quartered
+* 24 oz baby potatoes, halved
 
 ## Finishing
 
@@ -43,21 +42,14 @@ Modified from NYT Cooking - Slow Oven Method
 
 4. Build the base: Return beef to pot. Add beef broth, diced tomatoes, bay leaves, thyme, and rosemary. Stir to combine.
 
-5. Add vegetables for long cooking: Add onions, carrots, celery, mushrooms, garlic, and 1.5 cups of the cauliflower. Season with salt and pepper. Stir everything together.
+5. Add vegetables: Add onions, carrots, celery, mushrooms, potatoes, and garlic. Season with salt and pepper. Stir everything together.
 
 6. Cover and bake: Put the lid on and transfer to the oven. Cook for 6-8 hours at 275°F.
 
 7. Check liquid level: After 1-2 hours, check the stew. The vegetables should have released liquid and the level should have risen. If it looks dry, add ½-1 cup more broth.
 
-8. Add final vegetables: In the last 30-45 minutes of cooking, add the remaining 1.5 cups cauliflower and the green beans. Stir gently, return to oven.
+8. Finish: Remove from oven. The stew should be thick and rich. If too thin, simmer uncovered on the stovetop for 10-15 minutes. If too thick, add a splash of broth or water.
 
-9. Finish: Remove from oven. The stew should be thick and rich. If too thin, simmer uncovered on the stovetop for 10-15 minutes. If too thick, add a splash of broth or water.
-
-10. Final touches: Remove bay leaves and any woody herb stems. Taste and adjust salt and pepper. Stir in fresh chopped parsley. Let rest 10 minutes before serving.
+9. Final touches: Remove bay leaves and any woody herb stems. Taste and adjust salt and pepper. Stir in fresh chopped parsley. Let rest 10 minutes before serving.
 
 **Serves:** 4
-
-**Notes:**
-- The early cauliflower will break down and thicken the stew naturally
-- The late cauliflower will stay in chunks for texture
-- Check once at the halfway point if you're home, but it should be fine without intervention
