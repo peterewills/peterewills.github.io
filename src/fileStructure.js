@@ -9,7 +9,7 @@ export const fileStructure = {
     "stats.md": "/resources/ds-study-guide/stats.md"
   },
   "recipes": {
-    "beew-stew.md": "/resources/recipes/beew-stew.md",
+    "beef-stew.md": "/resources/recipes/beef-stew.md",
     "chili.md": "/resources/recipes/chili.md",
     "meat-sauce.md": "/resources/recipes/meat-sauce.md",
     "standards.md": "/resources/recipes/standards.md",
