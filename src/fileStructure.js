@@ -9,11 +9,10 @@ export const fileStructure = {
     "stats.md": "/resources/ds-study-guide/stats.md"
   },
   "recipes": {
-    "beef-stew-standard.md": "/resources/recipes/beef-stew-standard.md",
-    "beef-stew.md": "/resources/recipes/beef-stew.md",
+    "beew-stew.md": "/resources/recipes/beew-stew.md",
     "chili.md": "/resources/recipes/chili.md",
-    "mama-bread.md": "/resources/recipes/mama-bread.md",
     "meat-sauce.md": "/resources/recipes/meat-sauce.md",
+    "standards.md": "/resources/recipes/standards.md",
     "white-chicken-chili.md": "/resources/recipes/white-chicken-chili.md"
   },
   "writing": {

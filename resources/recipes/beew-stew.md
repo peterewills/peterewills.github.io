@@ -1,7 +1,5 @@
 # Beef Stew
 
-Modified from NYT Cooking - Slow Oven Method
-
 ## Protein & Base
 
 * 3.5 lbs beef stewing meat (sirloin or round), trimmed and cut into inch cubes

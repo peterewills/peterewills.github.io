@@ -1,7 +1,5 @@
 # Hearty Meat Sauce with Vegetables
 
-This rich, chunky meat sauce is perfect over pasta, in lasagna, or anywhere you need a robust tomato-based sauce.
-
 ## Protein & Base
 
 * 2 lbs ground beef

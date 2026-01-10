@@ -1,4 +1,4 @@
-# Smoked Chili (Doubled Recipe)
+# Smoked Chili
 
 ## Proteins & Base
 * 4 lbs extra lean ground beef (90-93% lean)
