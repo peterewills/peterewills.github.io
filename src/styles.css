@@ -4,260 +4,51 @@
   box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
 
 body {
-  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-family: 'Source Serif Pro', Georgia, serif;
   background-color: #3F3F3F;
   color: #FFFFEF;
   height: 100vh;
   overflow: hidden;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 #root {
   height: 100%;
 }
 
-.terminal {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background-color: #3F3F3F;
-}
-
-.terminal-header {
-  padding: 10px 20px;
-  background-color: #3F3F3F;
-  border-bottom: 1px solid #6F6F6F;
-  font-size: 14px;
-  color: #7F9F7F;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header-links {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.link-separator {
-  color: #6F6F6F;
-}
-
-.resume-link {
-  color: #8CD0D3;
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s;
-}
-
-.resume-link:hover {
-  color: #93E0E3;
-  text-decoration: underline;
-}
-
-.resources-link {
-  background: none;
-  border: none;
-  color: #8CD0D3;
-  text-decoration: none;
-  font-size: 14px;
-  font-family: 'Fira Code', 'Courier New', Courier, monospace;
-  cursor: pointer;
-  transition: color 0.2s;
-  padding: 0;
-}
-
-.resources-link:hover {
-  color: #93E0E3;
-  text-decoration: underline;
-}
-
-.terminal-body {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.terminal-body::-webkit-scrollbar {
-  width: 8px;
-}
-
-.terminal-body::-webkit-scrollbar-track {
-  background: #3F3F3F;
-}
-
-.terminal-body::-webkit-scrollbar-thumb {
-  background: #6F6F6F;
-}
-
-.terminal-body::-webkit-scrollbar-thumb:hover {
-  background: #8CD0D3;
-}
-
-.splash-screen {
-  margin-bottom: 20px;
-}
-
-.ascii-art {
-  color: #DFAF8F;
-  font-size: 14px;
-  line-height: 1.2;
-  font-family: 'Fira Code', 'Courier New', Courier, monospace;
-  white-space: pre;
-  overflow-x: auto;
-  margin-bottom: 0;
-}
-
-.splash-message {
-  color: #FFFFEF;
-  font-size: 16px;
-  line-height: 1.6;
-  font-family: 'Fira Code', 'Courier New', Courier, monospace;
-  white-space: pre;
-  margin: 0;
-}
-
-.resume-prompt {
-  color: #FFFFEF;
-  font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.splash-divider {
-  color: #FFFFEF;
-  font-size: 16px;
-  margin: 20px 0;
-  line-height: 1;
-}
-
-.query-prompt {
-  color: #FFFFEF;
-  font-size: 16px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.inline-resume-link {
-  color: #8CD0D3;
-  text-decoration: underline;
-}
-
-.inline-resume-link:hover {
-  color: #93E0E3;
-}
-
-.inline-resources-link {
-  background: none;
-  border: none;
-  color: #8CD0D3;
-  text-decoration: underline;
-  font-size: inherit;
-  font-family: inherit;
-  cursor: pointer;
-  padding: 0;
-  margin: 0;
-}
-
-.inline-resources-link:hover {
-  color: #93E0E3;
-}
-
-.history-item {
-  margin-bottom: 10px;
-}
-
-.input-line {
-  display: flex;
-  align-items: center;
-}
-
-.input-line.active {
-  margin-top: 10px;
-}
-
-.prompt {
-  color: #93E0E3;
-  margin-right: 10px;
-  font-size: 16px;
-}
-
-.input-text {
-  color: #FFFFEF;
-}
-
-.output-text {
-  color: #FFFFEF;
-  margin-left: 20px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-.error-text {
-  color: #CC9393;
-  margin-left: 20px;
-  font-style: italic;
-}
-
-.cursor {
-  color: #8CD0D3;
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-.terminal-input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #FFFFEF;
-  font-family: inherit;
-  font-size: 16px;
-  caret-color: #8CD0D3;
-}
-
-/* Markdown styles */
-.md-line {
-  display: inline;
-}
-
 /* Markdown header styles */
 .md-h1 {
-  font-size: 2.5em;
-  font-weight: bold;
+  font-size: 2.25em;
+  font-weight: 600;
   color: #F0DFAF;
   margin: 0.5em 0;
   line-height: 1.2;
 }
 
 .md-h2 {
-  font-size: 2em;
-  font-weight: bold;
+  font-size: 1.75em;
+  font-weight: 600;
   color: #DFAF8F;
-  margin: 0.5em 0;
+  margin: 0.75em 0 0.5em 0;
   line-height: 1.3;
 }
 
 .md-h3 {
-  font-size: 1.5em;
-  font-weight: bold;
+  font-size: 1.4em;
+  font-weight: 600;
   color: #DFAF8F;
-  margin: 0.5em 0;
+  margin: 0.75em 0 0.5em 0;
   line-height: 1.4;
 }
 
 .md-h4 {
-  font-size: 1.25em;
-  font-weight: bold;
+  font-size: 1.2em;
+  font-weight: 600;
   color: #DFAF8F;
   margin: 0.5em 0;
   line-height: 1.4;
@@ -265,7 +56,7 @@ body {
 
 .md-h5 {
   font-size: 1.1em;
-  font-weight: bold;
+  font-weight: 600;
   color: #DFAF8F;
   margin: 0.5em 0;
   line-height: 1.4;
@@ -273,16 +64,14 @@ body {
 
 .md-h6 {
   font-size: 1em;
-  font-weight: bold;
+  font-weight: 600;
   color: #DFAF8F;
   margin: 0.5em 0;
   line-height: 1.4;
 }
 
-/* Tool use indicator styling */
-.md-tool-line {
-  color: #DFAF8F !important;
-  font-weight: bold;
+.md-line {
+  display: inline;
 }
 
 .md-empty {
@@ -290,7 +79,7 @@ body {
 }
 
 .md-bold {
-  font-weight: bold;
+  font-weight: 700;
   color: #F0DFAF;
 }
 
@@ -307,10 +96,11 @@ body {
 
 .md-code {
   background-color: #4F4F4F;
-  padding: 2px 4px;
+  padding: 2px 6px;
   border-radius: 3px;
   font-size: 0.9em;
   color: #93E0E3;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
 }
 
 .md-list {
@@ -320,12 +110,12 @@ body {
 .md-list-item {
   display: flex;
   align-items: flex-start;
-  margin: 0.2em 0;
+  margin: 0.3em 0;
 }
 
 .md-list-marker {
   color: #8CD0D3;
-  margin-right: 0.5em;
+  margin-right: 0.75em;
   flex-shrink: 0;
 }
 
@@ -344,14 +134,14 @@ body {
 .md-table th,
 .md-table td {
   border: 1px solid #6F6F6F;
-  padding: 8px 12px;
+  padding: 10px 14px;
   text-align: left;
 }
 
 .md-th {
   background-color: #4F4F4F;
   color: #F0DFAF;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .md-table tr:nth-child(even) td {
@@ -412,7 +202,7 @@ body {
 }
 
 .md-footnotes-title {
-  font-weight: bold;
+  font-weight: 600;
   color: #DFAF8F;
   margin: 1em 0 0.5em 0;
   font-size: 1.2em;
@@ -424,12 +214,12 @@ body {
 }
 
 .md-footnote-id {
-  font-weight: bold;
+  font-weight: 600;
   color: #8CD0D3;
 }
 
 .md-footnote-back {
-  font-weight: bold;
+  font-weight: 600;
   color: #8CD0D3;
   text-decoration: none;
   margin-right: 0.5em;
@@ -464,8 +254,9 @@ body {
 
 .md-codeblock-language {
   color: #8CD0D3;
-  font-weight: bold;
+  font-weight: 500;
   text-transform: uppercase;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
 }
 
 .md-codeblock-content {
@@ -485,34 +276,21 @@ body {
   line-height: 1.5;
 }
 
-/* App layout styles */
-.app {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-color: #3F3F3F;
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-.app-header {
-  background-color: #3F3F3F;
-  border-bottom: 1px solid #6F6F6F;
-  padding: 10px 20px;
+::-webkit-scrollbar-track {
+  background: #3F3F3F;
 }
 
-.back-button {
-  background: none;
-  border: 1px solid #6F6F6F;
-  color: #8CD0D3;
-  font-family: 'Fira Code', 'Courier New', Courier, monospace;
-  font-size: 14px;
-  padding: 5px 15px;
-  cursor: pointer;
-  border-radius: 3px;
-  transition: all 0.2s;
+::-webkit-scrollbar-thumb {
+  background: #6F6F6F;
+  border-radius: 4px;
 }
 
-.back-button:hover {
-  color: #93E0E3;
-  border-color: #8CD0D3;
-  background-color: rgba(140, 208, 211, 0.1);
+::-webkit-scrollbar-thumb:hover {
+  background: #8CD0D3;
 }

@@ -4,7 +4,7 @@ import './MarkdownViewer.css';
 
 const MarkdownViewer = ({ filePath }) => {
   const [content, setContent] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -14,20 +14,9 @@ const MarkdownViewer = ({ filePath }) => {
       return;
     }
 
-    // Handle PDF files
-    if (filePath.endsWith('.pdf')) {
-      // Remove leading slash to make path relative
-      const relativePath = filePath.startsWith('/') ? filePath.substring(1) : filePath;
-      window.open(relativePath, '_blank');
-      setContent('Opening PDF in new tab...');
-      setLoading(false);
-      return;
-    }
-
-    // Load markdown files
     setLoading(true);
     setError(null);
-    
+
     fetch(filePath)
       .then(response => {
         if (!response.ok) {
@@ -49,20 +38,8 @@ const MarkdownViewer = ({ filePath }) => {
     return (
       <div className="markdown-viewer">
         <div className="viewer-welcome">
-          <pre className="ascii-welcome">
-{`
-╔════════════════════════════════════════════════╗
-║                                                ║
-║          Welcome to Peter's Resources          ║
-║                                                ║
-║  Select a file from the sidebar to view it.   ║
-║                                                ║
-╚════════════════════════════════════════════════╝
-`}
-          </pre>
           <p className="welcome-text">
-            Browse through my Data Science study guide, technical writings, 
-            or view my resume using the file tree on the left.
+            Select a recipe from the list to get started.
           </p>
         </div>
       </div>
@@ -89,9 +66,6 @@ const MarkdownViewer = ({ filePath }) => {
 
   return (
     <div className="markdown-viewer">
-      <div className="viewer-header">
-        <span className="viewer-path">{filePath}</span>
-      </div>
       <div className="viewer-content">
         <MarkdownRenderer content={content} />
       </div>

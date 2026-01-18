@@ -1,7 +1,5 @@
 # Hearty Meat Sauce with Vegetables
 
-This rich, chunky meat sauce is perfect over pasta, in lasagna, or anywhere you need a robust tomato-based sauce.
-
 ## Protein & Base
 
 * 2 lbs ground beef
@@ -48,3 +46,4 @@ This rich, chunky meat sauce is perfect over pasta, in lasagna, or anywhere you 
 - This makes a large batch—great for freezing portions for later
 - If you prefer a thicker sauce, simmer longer uncovered; for thinner, add a bit of pasta water or beef broth
 - For extra depth, you can add a tablespoon of tomato paste when you add the garlic
+- Consider slow-cooking the sauce - prepare in the morning, leave in the oven at 275 all day until dinner

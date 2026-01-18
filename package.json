@@ -1,11 +1,10 @@
 {
-  "name": "artemis-chat",
+  "name": "peters-recipes",
   "version": "1.0.0",
-  "description": "Terminal-style chatbot interface for Artemis API",
+  "description": "Simple recipe browser",
   "private": true,
   "scripts": {
     "start": "webpack serve --mode development",
-    "start:local": "REACT_APP_ARTEMIS_USE_LOCAL_ENDPOINT=true webpack serve --mode development",
     "generate-files": "node scripts/generate-file-structure.js",
     "build": "npm run generate-files && webpack --mode production",
     "watch": "webpack --watch --mode development"

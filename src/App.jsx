@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
-import Terminal from './Terminal';
+import Header from './Header';
+import RecipeList from './RecipeList';
 import MarkdownViewer from './MarkdownViewer';
-import Sidebar from './Sidebar';
 import './App.css';
 
 const App = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   return (
-    <div className="app-container">
-      <div className="app-main">
-        {selectedFile ? (
-          <MarkdownViewer filePath={selectedFile} />
-        ) : (
-          <Terminal />
-        )}
+    <div className="app">
+      <Header />
+      <div className="app-content">
+        <RecipeList
+          onRecipeSelect={setSelectedRecipe}
+          currentPath={selectedRecipe}
+        />
+        <main className="app-main">
+          <MarkdownViewer filePath={selectedRecipe} />
+        </main>
       </div>
-      <Sidebar 
-        onFileSelect={setSelectedFile} 
-        currentPath={selectedFile}
-      />
     </div>
   );
 };
