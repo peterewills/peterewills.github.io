@@ -15,7 +15,7 @@
 
 ## Base & Seasonings
 
-* 3-4 cans cream of celery soup (or "Healthy Request" version for lower fat)
+* 3-4 cans cream of celery soup (or "Healthy Request" for lower fat, or Pacific Foods dairy-free version)
 * 1 tsp salt (adjust to taste - the soup is already salty)
 * ½ tsp white pepper
 * 2 bay leaves
