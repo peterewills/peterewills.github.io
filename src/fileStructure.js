@@ -5,7 +5,9 @@ export const fileStructure = {
   recipes: {
       "beef-stew.md": "/resources/recipes/beef-stew.md",
       "chili.md": "/resources/recipes/chili.md",
+      "liver-beef-caramelized-onions.md": "/resources/recipes/liver-beef-caramelized-onions.md",
       "meat-sauce.md": "/resources/recipes/meat-sauce.md",
+      "seafood-stew.md": "/resources/recipes/seafood-stew.md",
       "standards.md": "/resources/recipes/standards.md",
       "white-chicken-chili.md": "/resources/recipes/white-chicken-chili.md"
   }
