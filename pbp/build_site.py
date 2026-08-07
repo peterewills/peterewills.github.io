@@ -6,7 +6,7 @@ import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = f"{HERE}/_source"
-OUT = f"{HERE}/dist"
+OUT = f"{HERE}/site"
 
 os.makedirs(f"{OUT}/videos", exist_ok=True)
 
