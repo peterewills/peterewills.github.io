@@ -7,8 +7,11 @@ import os
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = f"{HERE}/_source"
 OUT = f"{HERE}/site"
+REPO_ROOT = os.path.dirname(HERE)
+STATIC_OUT = f"{REPO_ROOT}/static"
 
 os.makedirs(f"{OUT}/videos", exist_ok=True)
+os.makedirs(STATIC_OUT, exist_ok=True)
 
 VIDEOS = [
     dict(
@@ -333,6 +336,92 @@ def video_page(v):
     with open(f"{OUT}/videos/{v['slug']}.html", "w") as f:
         f.write(page)
 
+def all_page():
+    # a single page with every full summary, in reading order, grouped by
+    # section - intended as the one URL to hand an AI agent / point a
+    # search engine at for whole-corpus questions, since the per-video pages
+    # require following 15 separate links to get the same coverage.
+    seen = []
+    for v in VIDEOS:
+        if v["section"] not in seen:
+            seen.append(v["section"])
+
+    body = ""
+    for s in seen:
+        body += f'\n<h2 id="{html.escape(s.lower().replace(" ", "-"))}">{html.escape(s)}</h2>\n'
+        for v in VIDEOS:
+            if v["section"] != s:
+                continue
+            with open(f"{SRC}/{v['dirname']}/summary.md") as f:
+                summary_html = md_to_html(f.read())
+            body += f"""
+<section id="{html.escape(v['slug'])}">
+<h3>{html.escape(v['ep'])}: {html.escape(v['title'])}</h3>
+<p class="meta-line">
+  <a href="{html.escape(v['url'])}" target="_blank" rel="noopener">Watch on YouTube</a>
+  &nbsp;&middot;&nbsp;
+  <a href="videos/{v['slug']}.html">Full transcript &amp; page &rarr;</a>
+</p>
+<div class="summary-body">
+{summary_html}
+</div>
+</section>
+"""
+
+    page = f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>All Summaries — PBP Prep Videos</title>
+<meta name="description" content="Full summaries of every Paris-Brest-Paris prep video from Rob Hawks' YouTube channel, on one page.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; Back to card view</a>
+  <h1>All PBP Prep Video Summaries</h1>
+  <p class="subtitle">Every video's full summary on one page, grouped by series &mdash;
+  useful for searching (Ctrl/Cmd-F) or for pointing an AI assistant at a single URL to
+  ask questions across the whole collection. Full transcripts aren't included here
+  (they'd make this page enormous); follow "Full transcript &amp; page" under each
+  entry for that.</p>
+  {body}
+  <footer>15 videos, ~13 hours of audio. Transcribed locally with whisper.cpp; summarized by Claude. &middot; <a href="index.html">Card view</a> &middot; <a href="process.html">How this site is built</a></footer>
+</div>
+</body>
+</html>
+"""
+    with open(f"{OUT}/all.html", "w") as f:
+        f.write(page)
+
+def crawler_files():
+    # robots.txt + sitemap.xml must live at the domain root to be respected
+    # site-wide, so these are written to REPO_ROOT/static (copied to the docs/
+    # root by webpack), not under pbp/site. Only enumerates the /pbp/ pages
+    # this script controls, plus the site root - doesn't try to guess the
+    # React app's client-side recipe routes.
+    site_root = "https://www.pwills.com"
+    pbp_urls = [
+        f"{site_root}/pbp/",
+        f"{site_root}/pbp/all.html",
+        f"{site_root}/pbp/process.html",
+    ] + [f"{site_root}/pbp/videos/{v['slug']}.html" for v in VIDEOS]
+
+    with open(f"{STATIC_OUT}/robots.txt", "w") as f:
+        f.write(f"User-agent: *\nAllow: /\n\nSitemap: {site_root}/sitemap.xml\n")
+
+    urls_xml = "\n".join(
+        f"  <url><loc>{u}</loc></url>" for u in [f"{site_root}/"] + pbp_urls
+    )
+    with open(f"{STATIC_OUT}/sitemap.xml", "w") as f:
+        f.write(
+            '<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            f"{urls_xml}\n"
+            "</urlset>\n"
+        )
+
 PROCESS_MD = r"""
 # How This Site Gets Updated
 
@@ -624,6 +713,14 @@ Notable implementation details worth knowing before editing this script further:
 - **Theme-aware CSS.** Uses `prefers-color-scheme` plus `:root[data-theme]`
   overrides so it looks reasonable in both light and dark, without needing any
   external CSS framework &mdash; this is a fully offline, dependency-free static site.
+- **`all.html` exists for AI agents / search engines, not just humans.** It
+  concatenates every video's full summary (not transcripts &mdash; that would be
+  ~120K+ words) onto one URL. The per-video pages are the better UX for a human
+  browsing, but a tool that just fetches one URL (a chatbot's web-fetch feature, a
+  search crawler) won't follow 15 internal links on its own to reconstruct the same
+  coverage &mdash; `all.html` is the single URL to hand something like that instead of
+  the card-based index. It's regenerated automatically by `all_page()` every time
+  the script runs, no extra step needed when adding a new video.
 
 ## 7. Quality-checking before calling it done
 
@@ -706,7 +803,7 @@ def index_page():
 <body>
 <div class="wrap">
   <h1>Paris-Brest-Paris Prep Videos</h1>
-  <p class="subtitle">Summaries and transcripts of every PBP prep video from Rob Hawks' YouTube channel (<a href="https://www.youtube.com/@robhawks" target="_blank" rel="noopener">@robhawks</a>) &mdash; the current PBP 2027 Prep Series plus the archival RUSA interview series and seminars from the 2023 cycle.</p>
+  <p class="subtitle">Summaries and transcripts of every PBP prep video from Rob Hawks' YouTube channel (<a href="https://www.youtube.com/@robhawks" target="_blank" rel="noopener">@robhawks</a>) &mdash; the current PBP 2027 Prep Series plus the archival RUSA interview series and seminars from the 2023 cycle. Asking an AI assistant to dig into this collection? Point it at <a href="all.html">the single-page version</a> instead of this index &mdash; it has every full summary on one URL.</p>
   {body_sections}
   <footer>15 videos, ~13 hours of audio. Transcribed locally with whisper.cpp; summarized by Claude. &middot; <a href="process.html">How to add new videos &rarr;</a></footer>
 </div>
@@ -724,4 +821,6 @@ for v in VIDEOS:
 
 index_page()
 process_page()
-print("done:", len(VIDEOS), "video pages + index.html + process.html + style.css")
+all_page()
+crawler_files()
+print("done:", len(VIDEOS), "video pages + index.html + process.html + all.html + style.css + robots.txt/sitemap.xml")

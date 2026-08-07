@@ -247,6 +247,14 @@ content.</p>
 <li><strong>Theme-aware CSS.</strong> Uses <code>prefers-color-scheme</code> plus <code>:root[data-theme]</code>
   overrides so it looks reasonable in both light and dark, without needing any
   external CSS framework &mdash; this is a fully offline, dependency-free static site.</li>
+<li><strong><code>all.html</code> exists for AI agents / search engines, not just humans.</strong> It
+  concatenates every video's full summary (not transcripts &mdash; that would be
+  ~120K+ words) onto one URL. The per-video pages are the better UX for a human
+  browsing, but a tool that just fetches one URL (a chatbot's web-fetch feature, a
+  search crawler) won't follow 15 internal links on its own to reconstruct the same
+  coverage &mdash; <code>all.html</code> is the single URL to hand something like that instead of
+  the card-based index. It's regenerated automatically by <code>all_page()</code> every time
+  the script runs, no extra step needed when adding a new video.</li>
 </ul>
 <h2>7. Quality-checking before calling it done</h2>
 <ul>
