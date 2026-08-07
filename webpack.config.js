@@ -39,7 +39,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'resources/recipes', to: 'resources/recipes' }
+        { from: 'resources/recipes', to: 'resources/recipes' },
+        { from: 'pbp/dist', to: 'pbp' }
       ]
     })
   ],

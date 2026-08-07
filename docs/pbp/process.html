@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>How to Add New Videos — PBP Prep Videos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; Back to all videos</a>
+  <div class="doc-body">
+  <h1>How This Site Gets Updated</h1>
+<p>A runbook for a <strong>future Claude session</strong> doing the thing this site actually needs
+periodically: <strong>Rob Hawks (<code>@robhawks</code>) posts new videos to the same channel, and
+they need to be added to this site</strong> &mdash; not a from-scratch rebuild, not a different
+channel. Everything below assumes the site already exists at this path, with
+<code>_source/videoN/</code> folders and a <code>VIDEOS</code> list in <code>build_site.py</code> covering the videos
+already processed.</p>
+<p>The one-time setup (tools, model, initial 15 videos) is done. This doc is about the
+recurring, cheaper task: check the channel, find what's new, run the same per-video
+pipeline on <em>only</em> the new videos, and append them to the existing site without
+touching anything already built.</p>
+<h2>Overview of an update run</h2>
+<ol>
+<li>Check what's already covered (read the <code>VIDEOS</code> list in this file) and list the
+   channel's current videos to diff against it.</li>
+<li>For each genuinely new video: download audio &rarr; convert to 16kHz mono &rarr;
+   transcribe locally with whisper.cpp &rarr; summarize into a structured markdown file
+   &mdash; same pipeline as before, into a new <code>_source/videoN/</code> folder.</li>
+<li>If there's more than one or two new videos, fan step 2 out across background
+   subagents (Claude Code's <code>Agent</code> tool), same as the original run &mdash; see the
+   gotchas below, they still apply.</li>
+<li>Append one entry per new video to the <code>VIDEOS</code> list in this file (reuse the
+   existing <code>section</code> name if it's the same ongoing series), then rerun
+   <code>python build_site.py</code>. Existing video pages regenerate identically; only the
+   index page and the new video pages actually change.</li>
+</ol>
+<h2>1. Confirm the toolchain is still there</h2>
+<p>This machine already has everything installed from the initial run, but a fresh
+session doesn't know that &mdash; confirm rather than assume, and only install what's
+actually missing:</p>
+<pre><code class="language-bash">which yt-dlp &amp;&amp; which ffmpeg &amp;&amp; which whisper-cli
+python -c &quot;import markdown&quot; 2&gt;&amp;1
+</code></pre>
+<p>If <code>whisper-cli</code> is missing its model, don't re-download blindly &mdash; the model used
+for every video on this site so far is at:</p>
+<pre><code>/Users/peter.wills@equipmentshare.com/Library/Application Support/MacWhisper/models/ggml-model-whisper-small.bin
+</code></pre>
+<p>(Originally installed by MacWhisper, not by this pipeline — worth rechecking with
+<code>find ~ -iname "ggml-*.bin"</code> in case that's moved or a better model has since been
+added.) Use the <strong>same model</strong> for new videos that was used for the existing ones, so
+transcription quality/quirks stay consistent across the site.</p>
+<h2>2. Find what's new on the channel</h2>
+<p>First, see what's already covered — every video already on the site has a <code>url=</code>
+entry in the <code>VIDEOS</code> list below in this file:</p>
+<pre><code class="language-bash">grep -oE 'url=&quot;[^&quot;]+&quot;' build_site.py
+</code></pre>
+<p>Then list what's currently on the channel and diff by video ID:</p>
+<pre><code class="language-bash">yt-dlp --flat-playlist --print &quot;%(id)s | %(title)s | %(duration_string)s&quot; \
+  &quot;https://www.youtube.com/@robhawks/videos&quot;
+</code></pre>
+<p>Any video ID in the channel listing that isn't already in the <code>grep</code> output above is
+new. Get its upload date too (cheap, skip-download):</p>
+<pre><code class="language-bash">yt-dlp --skip-download --print &quot;%(id)s|||%(title)s|||%(upload_date)s|||%(duration_string)s&quot; \
+  &quot;https://www.youtube.com/watch?v=VIDEO_ID&quot;
+</code></pre>
+<p>Sanity-check the title against the existing series naming (e.g. <code>PBP 2027 Prep
+Series #N: ...</code>) &mdash; if Rob starts a genuinely new/different series, that's worth
+flagging to the user rather than silently lumping it into an existing section.</p>
+<h2>3. The per-video pipeline (unchanged)</h2>
+<p>Same as the original run, once per new video, in a fresh <code>_source/videoN/</code> folder
+(continue the numbering &mdash; if the last one is <code>video15</code>, the next is <code>video16</code>):</p>
+<p>This is the core loop, run once per video in its own working directory:</p>
+<pre><code class="language-bash">mkdir -p &quot;$WORKDIR&quot; &amp;&amp; cd &quot;$WORKDIR&quot;
+
+# 1. audio only, as wav
+yt-dlp -x --audio-format wav --audio-quality 0 -o &quot;audio.%(ext)s&quot; &quot;$VIDEO_URL&quot;
+
+# 2. whisper.cpp needs 16kHz mono
+ffmpeg -y -i audio.wav -ar 16000 -ac 1 -c:a pcm_s16le audio16k.wav
+
+# 3. transcribe (plain text output, no timestamps)
+whisper-cli -m &quot;$MODEL_PATH&quot; -f audio16k.wav -otxt -of transcript --print-progress
+
+# 4. free disk space - a raw wav can be 400MB-1.5GB depending on length
+rm -f audio.wav audio16k.wav
+</code></pre>
+<p>Then read <code>transcript.txt</code> and write a structured <code>summary.md</code> &mdash; see the exact
+prompt template in section 4 below for the format that worked well.</p>
+<h2>4. If there's more than a couple of new videos: fan out (and the gotchas)</h2>
+<p>For one new video, just run the pipeline yourself in the main conversation. For more
+than a couple at once (e.g. catching up after being away for a month), running it
+sequentially is slow and burns context on transcript text you don't need there.
+Instead, launch one background subagent (Claude Code's <code>Agent</code> tool) per new video,
+with a fully self-contained prompt: exact commands, the model path, the working
+directory, and formatting instructions for the summary. The subagent does the whole
+download &rarr; transcribe &rarr; summarize pipeline independently and returns only the
+finished summary text.</p>
+<div class="callout">
+
+**This is the part that went wrong repeatedly in practice.** Four distinct failure
+modes showed up the first time this ran across a batch of 14 parallel subagents.
+They'll show up again on any future multi-video batch too &mdash; bake the fixes
+directly into the agent prompt up front rather than rediscovering them.
+
+</div>
+
+<h3>Gotcha 1: agents stop and wait for a "notification" that never comes</h3>
+<p>Subagents kept launching whisper-cli with the Bash tool's <code>run_in_background: true</code>
+option (or the <code>Monitor</code> tool), then ending their turn saying "I'll wait for the
+completion notification" &mdash; but that notification pattern is for the <em>main</em>
+session's background tasks, not something a subagent can meaningfully wait on inside
+its own turn. The agent just stops, indefinitely, having done nothing after that
+point.</p>
+<p><strong>Fix:</strong> tell the agent explicitly not to use <code>run_in_background</code> or <code>Monitor</code> for
+this. Instead, background the process with plain shell job control, then poll with an
+ordinary <em>blocking</em> foreground <code>Bash</code> call that returns real output when it's done:</p>
+<pre><code class="language-bash"># launch, detached, returns immediately
+nohup whisper-cli -m &quot;$MODEL_PATH&quot; -f audio16k.wav -otxt -of transcript \
+  --print-progress &gt; whisper.log 2&gt;&amp;1 &amp; disown; echo launched
+</code></pre>
+<pre><code class="language-bash"># then poll with a single blocking call (timeout: 590000 or so) -
+# this actually blocks and returns &quot;DONE&quot; when the file appears
+while [ ! -f transcript.txt ]; do sleep 20; done; echo DONE
+</code></pre>
+<p>If that poll call times out before the file exists (common for anything over ~30
+minutes of audio), just call the <em>exact same</em> wait command again &mdash; never restart
+whisper-cli, it's still running from the first launch. Tell the agent explicitly to
+complete the read/summarize steps in the <em>same turn</em> immediately after the poll
+returns "DONE", rather than ending its turn again.</p>
+<h3>Gotcha 2: the sandbox silently kills the backgrounded process anyway</h3>
+<p>Even with the plain-shell-backgrounding approach above, a <code>while</code> polling loop that
+runs past roughly 590 seconds can cause the sandbox to reap the backgrounded
+whisper-cli process silently &mdash; no error, it just dies mid-transcription. This is
+easy to miss: the poll loop just keeps timing out and you assume it's slow, when it's
+actually dead.</p>
+<p><strong>Fix:</strong> if a video is long enough that transcription clearly should have progressed
+further than it has, sanity-check with <code>ps aux | grep whisper-cli</code> and <code>tail
+whisper.log</code> to see if the process is actually still alive and the log is still
+growing. If it's dead, relaunch the exact same whisper-cli command but with
+<code>dangerouslyDisableSandbox: true</code> set on that specific Bash call &mdash; this exempts
+just that one long-running command from the reaping behavior. It only affects the
+sandboxing of that command; it does not grant any additional capability beyond what
+the agent already had (no network access, no new file permissions) &mdash; it just lets
+a long-lived local process survive past the tool call's own scope. Worth noting
+transparently to the user afterward, since instructing a subagent to disable
+sandboxing is the kind of thing that (correctly) gets flagged for review.</p>
+<h3>Gotcha 3: subagents can't write files that look like "reports"</h3>
+<p>Subagent <code>Write</code> calls to a file literally named <code>summary.md</code> get hard-blocked with
+something like <em>"subagents should return findings as text, not write report
+files."</em> This is a deliberate harness restriction on subagents self-reporting, and it
+fires on the filename/context, not on user intent &mdash; even when the task explicitly
+asks for a <code>summary.md</code> deliverable.</p>
+<p><strong>Fix:</strong> don't fight it. Tell agents to just return the full summary as their final
+answer text if the write is blocked (some worked around it via a Bash heredoc or a
+write-then-<code>mv</code> trick instead &mdash; that also works, but isn't necessary). Either way,
+the <strong>coordinating session</strong> should always plan to persist the returned text to disk
+itself, since you can't rely on every subagent's write succeeding.</p>
+<h3>Gotcha 4: CPU contention when many whisper-cli jobs run at once</h3>
+<p>Running many transcriptions in parallel on one machine means they all compete for the
+same CPU cores, so each one takes noticeably longer than it would running alone.
+This isn't really fixable &mdash; it's just worth setting expectations (and telling the
+user) that a batch of a dozen-plus long videos can take the better part of an hour of
+wall-clock time even though each individual transcription is fast in isolation.</p>
+<h3>The prompt template that worked</h3>
+<p>Each per-video agent prompt should include, concretely:</p>
+<ul>
+<li>The exact video title, URL, and expected duration.</li>
+<li>The exact working directory to use.</li>
+<li>The exact shell commands for each pipeline step (don't make the agent improvise
+  the yt-dlp/ffmpeg/whisper-cli invocations &mdash; give them verbatim).</li>
+<li>The gotchas above, stated as direct instructions ("do not use <code>run_in_background</code>
+  or <code>Monitor</code> for this, instead...").</li>
+<li>The desired summary format &mdash; what worked well here: a one-line <strong>Video:</strong> header
+  naming participants/credentials, then a handful of bolded thematic sections each as
+  a bullet list of <em>concrete</em> points (names, numbers, dates, specific advice &mdash; not
+  vague paraphrasing), a dedicated section for any rapid-fire Q&amp;A/lightning-round
+  segment, and an instruction to silently correct obvious whisper mis-transcriptions
+  of jargon/proper nouns rather than preserving garbled text.</li>
+<li>An instruction to return the video's URL/title at the end of the summary, so the
+  coordinator can match it back up without re-deriving it.</li>
+</ul>
+<h2>5. Coordinator responsibilities</h2>
+<p>While the batch runs:</p>
+<ul>
+<li>Use <code>TaskCreate</code>/<code>TaskUpdate</code> to track one task per video plus a final "compile"
+  task, so progress is visible and nothing gets dropped.</li>
+<li>As each agent's summary comes back, write it to <code>summary.md</code> in that video's
+  directory yourself (see Gotcha 3) rather than assuming the agent already did.</li>
+<li>If an agent reports it already "delivered" a summary in an earlier turn that you
+  don't actually have in context (this happens when a <code>SendMessage</code> reply is terse),
+  ask it to resend the full text rather than fabricating or skipping that video.</li>
+<li>Keep transcripts <em>and</em> summaries side by side per video &mdash; don't discard the raw
+  transcript once summarized. It's the thing you'll want to search when the user
+  later asks a specific question the summary didn't happen to cover (see below).</li>
+</ul>
+<h2>6. Adding the new video(s) to the site</h2>
+<p>This file (<code>build_site.py</code>) is the generator. It expects a <code>_source/videoN/</code>
+directory per video (each containing <code>summary.md</code> and <code>transcript.txt</code>), a <code>VIDEOS</code>
+metadata list describing title/URL/section/one-paragraph blurb per video, and
+produces <code>index.html</code> + <code>videos/*.html</code> + <code>style.css</code>.</p>
+<p>To add a new video:</p>
+<ol>
+<li>Put its <code>summary.md</code> and <code>transcript.txt</code> in a new <code>_source/videoN/</code> folder
+   (continuing the numbering).</li>
+<li>Append a new <code>dict(...)</code> entry to the <code>VIDEOS</code> list, copying the shape of an
+   existing entry in the same <code>section</code> (reuse <code>"PBP 2027 Prep Series"</code> as-is if
+   that's still the ongoing series &mdash; don't invent a new section name for a video
+   that's just the next episode of the same one). Write a fresh one-paragraph
+   <code>blurb</code> for it — condense the new summary down to ~3-6 sentences, matching the
+   tone of the existing blurbs on the index page.</li>
+<li>Rerun:</li>
+</ol>
+<pre><code class="language-bash">cd /path/to/this/site &amp;&amp; python build_site.py
+</code></pre>
+<p>Every video page is regenerated from its <code>summary.md</code> every time the script runs,
+including ones that didn't change &mdash; that's expected and harmless (their output is
+deterministic, so an unrelated re-run produces byte-identical files for untouched
+videos). Only <code>index.html</code> and the brand-new video page(s) will actually have new
+content.</p>
+<p>Notable implementation details worth knowing before editing this script further:</p>
+<ul>
+<li><strong>Markdown list-blank-line hack.</strong> The summarizing agents write
+  <code>**Header**\n- item</code> with no blank line before the list, which most markdown
+  parsers (including Python's <code>markdown</code> package) won't recognize as a real list
+  without a preceding blank line. <code>md_to_html()</code> inserts one automatically rather
+  than trying to get 15 independently-written summaries to all follow strict
+  markdown list syntax.</li>
+<li><strong>Nested-bullet indent fix.</strong> The same summaries use 2-space indentation for
+  nested sub-bullets; standard markdown wants 4-space (or a full tab) to recognize
+  nesting, otherwise it silently flattens the sublist into the parent list. Bumped
+  to 4-space before conversion.</li>
+<li><strong>Don't hand-write HTML entities in Python string literals that later get
+  <code>html.escape()</code>'d.</strong> This bit us directly: a few <code>VIDEOS</code> blurb/title fields were
+  written with literal <code>&amp;amp;</code>, <code>&amp;mdash;</code>, etc. (intending them as ready-made HTML),
+  and then a template call to <code>html.escape()</code> on that same field turned <code>&amp;amp;</code> into
+  <code>&amp;amp;amp;</code> &mdash; which renders in the browser as the literal text <code>&amp;amp;</code> instead of
+  an ampersand. The fix (and the right way to do it from the start): keep the raw
+  Python strings as plain Unicode (<code>&amp;</code>, <code>&amp;mdash;</code> written as the actual character
+  &mdash;, <code>"curly quotes"</code> as actual curly-quote characters), and either escape
+  consistently exactly once wherever a field is inserted, or don't escape fields
+  that are meant to already be safe plain text. Don't mix both.</li>
+<li><strong>Collapsible transcripts.</strong> Each video page uses a native <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code>
+  element for the full transcript rather than JS tabs &mdash; works with zero
+  JavaScript, and is closed by default so the page reads as summary-first.</li>
+<li><strong>Theme-aware CSS.</strong> Uses <code>prefers-color-scheme</code> plus <code>:root[data-theme]</code>
+  overrides so it looks reasonable in both light and dark, without needing any
+  external CSS framework &mdash; this is a fully offline, dependency-free static site.</li>
+</ul>
+<h2>7. Quality-checking before calling it done</h2>
+<ul>
+<li>Open the <strong>new</strong> video page(s) and the index in an actual browser &mdash; don't just
+  eyeball the generated HTML source.</li>
+<li>Grep the whole output tree for tell-tale double-escaping artifacts before
+  shipping: <code>grep -rn "amp;amp;" .</code> should return nothing. This is especially worth
+  doing after hand-writing a new <code>blurb</code>/<code>title</code> string &mdash; see the entity-escaping
+  note above, it's an easy mistake to reintroduce on every new entry.</li>
+<li>Spot-check that nested bullet lists in the new summary actually nest (<code>&lt;ul&gt;</code> inside
+  an <code>&lt;li&gt;</code>, not a flat sibling list).</li>
+<li>Confirm the new video landed in the right section on the index page, in the right
+  order (episode order within a section, matching its <code>ep</code> field).</li>
+<li>If the user asks a substantive question about the content afterward, prefer
+  grepping the raw <code>_source/*/transcript.txt</code> files (now including the new one) over
+  relying purely on the condensed summaries &mdash; summaries are lossy by design, and a
+  specific question often surfaces detail and exact quotes that only exist in the
+  full transcript.</li>
+</ul>
+  </div>
+  <footer>This page documents the pipeline used to build this site, for future re-use.</footer>
+</div>
+</body>
+</html>
