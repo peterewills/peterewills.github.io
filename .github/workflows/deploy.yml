@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check flxrando content and fetch route stats
+        run: python3 flxrando/build_routes.py
+
       - name: Build
         env:
           REACT_APP_ARTEMIS_API_KEY: ${{ secrets.REACT_APP_ARTEMIS_API_KEY }}
