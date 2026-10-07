@@ -41,6 +41,7 @@ module.exports = {
       patterns: [
         { from: 'resources/recipes', to: 'resources/recipes' },
         { from: 'pbp/site', to: 'pbp' },
+        { from: 'flxrando/site', to: 'flxrando' },
         { from: 'static', to: '.' }
       ]
     })
