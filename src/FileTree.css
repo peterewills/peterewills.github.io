@@ -1,0 +1,68 @@
+.file-tree {
+  margin: 0;
+  padding: 0;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #FFFFEF;
+  white-space: pre;
+  user-select: none;
+}
+
+.tree-item {
+  display: flex;
+  align-items: center;
+}
+
+.tree-root {
+  color: #7F9F7F;
+}
+
+.tree-prefix {
+  color: #6F6F6F;
+  flex-shrink: 0;
+}
+
+.tree-file,
+.tree-folder {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.tree-file {
+  color: #FFFFEF;
+}
+
+.tree-file:hover,
+.tree-file:focus-visible {
+  color: #8CD0D3;
+  text-decoration: underline;
+  outline: none;
+}
+
+.tree-file.active {
+  color: #93E0E3;
+  font-weight: bold;
+}
+
+.tree-folder {
+  color: #DFAF8F;
+  font-weight: bold;
+}
+
+.tree-folder:hover,
+.tree-folder:focus-visible {
+  color: #F0DFAF;
+  outline: none;
+}
+
+.tree-link {
+  color: #8CD0D3;
+  text-decoration: none;
+}

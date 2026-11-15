@@ -5,3 +5,4 @@ ltximg
 node_modules/
 *.log
 .DS_Store
+build/

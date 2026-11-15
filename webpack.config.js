@@ -39,9 +39,9 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'resources/recipes', to: 'resources/recipes' },
+        { from: 'resources', to: 'resources' },
+        { from: 'build/recipes', to: 'recipes' },
         { from: 'pbp/site', to: 'pbp' },
-        { from: 'flxrando/site', to: 'flxrando' },
         { from: 'static', to: '.' }
       ]
     })

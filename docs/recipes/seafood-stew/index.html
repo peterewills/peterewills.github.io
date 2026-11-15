@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfaf7">
+<meta name="apple-mobile-web-app-title" content="Recipes">
+<title>Seafood Stew</title>
+<style>
+:root {
+  --bg: #fbfaf7;
+  --text: #1f1d1a;
+  --muted: #6b665e;
+  --rule: #e4e0d8;
+  --accent: #9a4a1c;
+  --done: #a8a399;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.55;
+}
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 16px 20px 64px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  padding: 4px 0 12px;
+  border-bottom: 1px solid var(--rule);
+}
+a { color: var(--accent); }
+nav a { text-decoration: none; padding: 8px 0; }
+h1 { font-size: 1.7rem; line-height: 1.2; margin: 24px 0 12px; }
+h2 {
+  font-size: 1.15rem;
+  margin: 32px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+h3 { font-size: 1.05rem; margin: 24px 0 8px; }
+ul, ol { padding-left: 1.4em; margin: 8px 0; }
+li { margin: 6px 0; }
+ol > li { margin: 14px 0; }
+ul > li { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+li.done { color: var(--done); text-decoration: line-through; }
+strong { font-weight: 650; }
+table { border-collapse: collapse; width: 100%; font-size: 17px; margin: 12px 0; }
+th, td { border-bottom: 1px solid var(--rule); padding: 6px 8px; text-align: left; }
+.index { list-style: none; padding: 0; margin: 16px 0; }
+.index li { margin: 0; border-bottom: 1px solid var(--rule); }
+.index a { display: block; padding: 14px 0; text-decoration: none; color: var(--text); font-size: 1.1rem; }
+.wake {
+  font: inherit;
+  font-size: 15px;
+  color: var(--accent);
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+.wake[aria-pressed="true"] { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+<nav><a href="../">← All recipes</a><button class="wake" type="button" aria-pressed="false">Keep screen on</button></nav>
+<h1>Seafood Stew</h1>
+<h2>Protein</h2>
+<ul>
+<li>3 lbs salmon (or other firm fish like cod, halibut, or mahi-mahi)</li>
+<li>2 cans clams in juice</li>
+</ul>
+<h2>Vegetables</h2>
+<ul>
+<li>4 large sweet onions, diced small</li>
+<li>1.5 lbs potatoes, cut into small cubes</li>
+<li>1 lb shiitake mushrooms</li>
+<li>1.5 stalks celery, finely chopped (optional)</li>
+<li>Garlic to taste, minced</li>
+</ul>
+<h2>Base &amp; Seasonings</h2>
+<ul>
+<li>3-4 cans cream of celery soup (or &quot;Healthy Request&quot; for lower fat, or Pacific Foods dairy-free version)</li>
+<li>1 tsp salt (adjust to taste - the soup is already salty)</li>
+<li>½ tsp white pepper</li>
+<li>2 bay leaves</li>
+<li>1 tsp dried thyme (or 4-5 sprigs fresh)</li>
+<li>1-2 tsp Old Bay seasoning</li>
+<li>½ tsp smoked paprika (optional, for depth)</li>
+</ul>
+<h2>Instructions</h2>
+<ol>
+<li><p>Preheat the oven to 350°F.</p>
+</li>
+<li><p>Chop the garlic and celery finely, sautee them for a bit. Add the onions, potatoes, and mushrooms and cook until the mushrooms and onions reduce some.</p>
+</li>
+<li><p>If the salmon has skin on, bake it in the oven for 10 minutes so that you can remove the skin easily. If not, you can cut it into filets and put it directly in with the veggies.</p>
+</li>
+<li><p>Combine veggies, fish, soup base, and seasonings in a Dutch oven. Don&#39;t add the clams yet. Mix well and cover.</p>
+</li>
+<li><p>Bake for 2+ hours.</p>
+</li>
+<li><p>Remove from oven and stir in the clams and their juice.</p>
+</li>
+</ol>
+<h2>Notes</h2>
+<ul>
+<li>Cut the onions and potatoes smaller than you would for a pot roast. The other ingredients reduce down and the salmon dissolves, so large pieces of potato and onion feel out of place.</li>
+<li>The celery is optional if you have it on hand.</li>
+<li>For a fancier presentation, top with curly parsley and feta for a fresh crunch.</li>
+<li>Fresh bread pairs well with this stew.</li>
+<li>For a richer version, substitute cream of mushroom soup for the cream of celery.</li>
+</ul>
+<p><strong>Serves:</strong> 4</p>
+
+</main>
+<script>
+document.querySelectorAll('ul > li').forEach(function (li) {
+  li.addEventListener('click', function () { li.classList.toggle('done'); });
+});
+var btn = document.querySelector('.wake');
+if (!('wakeLock' in navigator)) { btn.hidden = true; }
+var lock = null;
+btn.addEventListener('click', async function () {
+  if (lock) { await lock.release(); lock = null; btn.setAttribute('aria-pressed', 'false'); return; }
+  try {
+    lock = await navigator.wakeLock.request('screen');
+    btn.setAttribute('aria-pressed', 'true');
+    lock.addEventListener('release', function () { lock = null; btn.setAttribute('aria-pressed', 'false'); });
+  } catch (e) { btn.hidden = true; }
+});
+</script>
+</body>
+</html>

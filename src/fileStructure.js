@@ -2,15 +2,37 @@
 // Do not edit manually - run 'npm run generate-files' to update
 
 export const fileStructure = {
-  recipes: {
-      "beef-stew.md": "/resources/recipes/beef-stew.md",
-      "chili.md": "/resources/recipes/chili.md",
-      "liver-beef-caramelized-onions.md": "/resources/recipes/liver-beef-caramelized-onions.md",
-      "meat-sauce.md": "/resources/recipes/meat-sauce.md",
-      "seafood-stew.md": "/resources/recipes/seafood-stew.md",
-      "standards.md": "/resources/recipes/standards.md",
-      "white-chicken-chili.md": "/resources/recipes/white-chicken-chili.md"
+  "writing": {
+    "blogging-in-org.md": "/resources/writing/blogging-in-org.md",
+    "entropy.md": "/resources/writing/entropy.md",
+    "types-as-propositions.md": "/resources/writing/types-as-propositions.md",
+    "your-p-values-are-bogus.md": "/resources/writing/your-p-values-are-bogus.md"
+  },
+  "ds-study-guide": {
+    "eng.md": "/resources/ds-study-guide/eng.md",
+    "ml.md": "/resources/ds-study-guide/ml.md",
+    "stats.md": "/resources/ds-study-guide/stats.md"
+  },
+  "links": {
+    "github": "https://github.com/peterewills",
+    "linkedin": "https://www.linkedin.com/in/peterewills"
+  },
+  "recipes": {
+    "beef-stew.md": "/resources/recipes/beef-stew.md",
+    "chili.md": "/resources/recipes/chili.md",
+    "liver-beef-caramelized-onions.md": "/resources/recipes/liver-beef-caramelized-onions.md",
+    "meat-sauce.md": "/resources/recipes/meat-sauce.md",
+    "roast-chicken.md": "/resources/recipes/roast-chicken.md",
+    "seafood-stew.md": "/resources/recipes/seafood-stew.md",
+    "standards.md": "/resources/recipes/standards.md",
+    "vegan-pesto.md": "/resources/recipes/vegan-pesto.md",
+    "white-chicken-chili.md": "/resources/recipes/white-chicken-chili.md"
   }
 };
 
-export const defaultExpandedFolders = ['recipes'];
+export const defaultExpandedFolders = [
+  "writing",
+  "ds-study-guide",
+  "links",
+  "recipes"
+];

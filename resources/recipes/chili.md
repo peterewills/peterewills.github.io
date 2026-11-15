@@ -1,7 +1,8 @@
 # Smoked Chili
 
 ## Proteins & Base
-* 4 lbs extra lean ground beef (90-93% lean)
+* 2 lbs lean ground beef (90-93% lean)
+* 2 lbs 80/20 ground beef
 * 4 sweet onions, diced small
 * 2 Tbsp olive oil
 
@@ -19,6 +20,7 @@
 * 2 Tbsp Worcestershire sauce
 * 3-4 Tbsp apple cider vinegar
 * ½ tsp liquid smoke (adjust to taste)
+* ¼ cup maple syrup, plus more to taste
 
 ## Beans
 * 1 (18-oz) can black beans, drained and rinsed
@@ -49,7 +51,7 @@
 
 4. Add all the dry spices (chili powder, cumin, smoked paprika, oregano, salt, cayenne, cinnamon, and instant coffee). Stir and toast for about 1 minute to bloom the spices.
 
-5. Return the browned beef to the pot. Add the crushed tomatoes, beef broth, Worcestershire sauce, apple cider vinegar, and liquid smoke. Stir well to combine.
+5. Return the browned beef to the pot. Add the crushed tomatoes, beef broth, Worcestershire sauce, apple cider vinegar, liquid smoke, and maple syrup. Stir well to combine.
 
 6. Bring to a simmer, then transfer to a 275°F oven covered. Cook for 6-8 hours, stirring occasionally.
 

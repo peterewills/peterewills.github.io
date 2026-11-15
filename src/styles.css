@@ -1,54 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
 
 body {
-  font-family: 'Source Serif Pro', Georgia, serif;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
   background-color: #3F3F3F;
   color: #FFFFEF;
   height: 100vh;
   overflow: hidden;
-  font-size: 16px;
-  line-height: 1.6;
 }
 
 #root {
   height: 100%;
 }
 
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #3F3F3F;
+}
+
+.home-header {
+  padding: 10px 20px;
+  background-color: #3F3F3F;
+  border-bottom: 1px solid #6F6F6F;
+  font-size: 14px;
+  color: #7F9F7F;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.link-separator {
+  color: #6F6F6F;
+}
+
+.resume-link {
+  color: #8CD0D3;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.resume-link:hover {
+  color: #93E0E3;
+  text-decoration: underline;
+}
+
+
+
+.home-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.home-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.home-body::-webkit-scrollbar-track {
+  background: #3F3F3F;
+}
+
+.home-body::-webkit-scrollbar-thumb {
+  background: #6F6F6F;
+}
+
+.home-body::-webkit-scrollbar-thumb:hover {
+  background: #8CD0D3;
+}
+
+
+.ascii-art {
+  color: #DFAF8F;
+  font-size: 14px;
+  line-height: 1.2;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  white-space: pre;
+  overflow-x: auto;
+  margin-bottom: 0;
+}
+
+.splash-message {
+  color: #FFFFEF;
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  white-space: pre;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Markdown styles */
+.md-line {
+  display: inline;
+}
+
 /* Markdown header styles */
 .md-h1 {
-  font-size: 2.25em;
-  font-weight: 600;
+  font-size: 2.5em;
+  font-weight: bold;
   color: #F0DFAF;
   margin: 0.5em 0;
   line-height: 1.2;
 }
 
 .md-h2 {
-  font-size: 1.75em;
-  font-weight: 600;
+  font-size: 2em;
+  font-weight: bold;
   color: #DFAF8F;
-  margin: 0.75em 0 0.5em 0;
+  margin: 0.5em 0;
   line-height: 1.3;
 }
 
 .md-h3 {
-  font-size: 1.4em;
-  font-weight: 600;
+  font-size: 1.5em;
+  font-weight: bold;
   color: #DFAF8F;
-  margin: 0.75em 0 0.5em 0;
+  margin: 0.5em 0;
   line-height: 1.4;
 }
 
 .md-h4 {
-  font-size: 1.2em;
-  font-weight: 600;
+  font-size: 1.25em;
+  font-weight: bold;
   color: #DFAF8F;
   margin: 0.5em 0;
   line-height: 1.4;
@@ -56,7 +162,7 @@ body {
 
 .md-h5 {
   font-size: 1.1em;
-  font-weight: 600;
+  font-weight: bold;
   color: #DFAF8F;
   margin: 0.5em 0;
   line-height: 1.4;
@@ -64,22 +170,19 @@ body {
 
 .md-h6 {
   font-size: 1em;
-  font-weight: 600;
+  font-weight: bold;
   color: #DFAF8F;
   margin: 0.5em 0;
   line-height: 1.4;
 }
 
-.md-line {
-  display: inline;
-}
 
 .md-empty {
   height: 1em;
 }
 
 .md-bold {
-  font-weight: 700;
+  font-weight: bold;
   color: #F0DFAF;
 }
 
@@ -96,11 +199,10 @@ body {
 
 .md-code {
   background-color: #4F4F4F;
-  padding: 2px 6px;
+  padding: 2px 4px;
   border-radius: 3px;
   font-size: 0.9em;
   color: #93E0E3;
-  font-family: 'Fira Code', 'Courier New', Courier, monospace;
 }
 
 .md-list {
@@ -110,12 +212,12 @@ body {
 .md-list-item {
   display: flex;
   align-items: flex-start;
-  margin: 0.3em 0;
+  margin: 0.2em 0;
 }
 
 .md-list-marker {
   color: #8CD0D3;
-  margin-right: 0.75em;
+  margin-right: 0.5em;
   flex-shrink: 0;
 }
 
@@ -134,14 +236,14 @@ body {
 .md-table th,
 .md-table td {
   border: 1px solid #6F6F6F;
-  padding: 10px 14px;
+  padding: 8px 12px;
   text-align: left;
 }
 
 .md-th {
   background-color: #4F4F4F;
   color: #F0DFAF;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .md-table tr:nth-child(even) td {
@@ -202,7 +304,7 @@ body {
 }
 
 .md-footnotes-title {
-  font-weight: 600;
+  font-weight: bold;
   color: #DFAF8F;
   margin: 1em 0 0.5em 0;
   font-size: 1.2em;
@@ -214,12 +316,12 @@ body {
 }
 
 .md-footnote-id {
-  font-weight: 600;
+  font-weight: bold;
   color: #8CD0D3;
 }
 
 .md-footnote-back {
-  font-weight: 600;
+  font-weight: bold;
   color: #8CD0D3;
   text-decoration: none;
   margin-right: 0.5em;
@@ -254,9 +356,8 @@ body {
 
 .md-codeblock-language {
   color: #8CD0D3;
-  font-weight: 500;
+  font-weight: bold;
   text-transform: uppercase;
-  font-family: 'Fira Code', 'Courier New', Courier, monospace;
 }
 
 .md-codeblock-content {
@@ -276,21 +377,99 @@ body {
   line-height: 1.5;
 }
 
-/* Scrollbar styles */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* App layout styles */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #3F3F3F;
 }
 
-::-webkit-scrollbar-track {
-  background: #3F3F3F;
+.app-header {
+  background-color: #3F3F3F;
+  border-bottom: 1px solid #6F6F6F;
+  padding: 10px 20px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #6F6F6F;
-  border-radius: 4px;
+.back-button {
+  background: none;
+  border: 1px solid #6F6F6F;
+  color: #8CD0D3;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-size: 14px;
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #8CD0D3;
+.back-button:hover {
+  color: #93E0E3;
+  border-color: #8CD0D3;
+  background-color: rgba(140, 208, 211, 0.1);
+}
+/* Home */
+.home-column {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.home-body .ascii-art {
+  font-size: clamp(5px, 1.5vw, 14px);
+}
+
+.home-body .splash-message {
+  white-space: normal;
+  max-width: 72ch;
+  margin: 24px 0 32px;
+}
+
+.home-tree {
+  font-size: 15px;
+  padding-top: 24px;
+  border-top: 1px solid #6F6F6F;
+}
+
+@media (max-width: 768px) {
+  body {
+    height: auto;
+    overflow: auto;
+  }
+
+  .app-container {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .app-main {
+    overflow: visible;
+  }
+
+  /* No sidebar on phones; the viewer's back button returns to the tree. */
+  .sidebar {
+    display: none;
+  }
+
+  .home-header {
+    padding: 10px 16px;
+  }
+
+  .home-body {
+    padding: 16px;
+    font-size: 15px;
+  }
+
+  .home-column {
+    padding: 8px 0 32px;
+  }
+
+  .home-tree {
+    font-size: 14px;
+  }
+
+  .viewer-content {
+    padding: 16px;
+  }
 }
