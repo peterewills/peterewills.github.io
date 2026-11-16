@@ -9,9 +9,8 @@
 ## Liquids & Aromatics
 
 * 1 bottle (750 ml) dry red wine
-* 2 cups beef broth, homemade or low-sodium canned (plus more if needed)
-* 2 Tbsp tomato paste
-* 1 can (14.5 oz) diced tomatoes
+* 3 cups beef broth, homemade or low-sodium canned (plus more if needed)
+* 4 Tbsp tomato paste
 * 2 bay leaves
 * 1 tsp dried thyme
 * ½ tsp dried rosemary, crushed
@@ -36,9 +35,9 @@
 
 2. Brown the beef: Season beef with pepper. Heat oil in a large Dutch oven over medium-high heat. Brown beef in batches (don't overcrowd), about 5 minutes per batch. Remove beef and set aside.
 
-3. Reduce the wine: Stir tomato paste into the pot and cook 1 minute. Add the wine, scraping up any browned bits with a wooden spoon. Boil until reduced by about half, 10-12 minutes.
+3. Reduce the wine: Stir tomato paste into the pot and cook until it darkens to brick red, about 2 minutes. Add the wine, scraping up any browned bits with a wooden spoon. Boil until reduced by about half, 10-12 minutes.
 
-4. Build the base: Return beef to pot. Add beef broth, diced tomatoes, bay leaves, thyme, and rosemary. Stir to combine.
+4. Build the base: Return beef to pot. Add beef broth, bay leaves, thyme, and rosemary. Stir to combine.
 
 5. Add vegetables: Add half the pearl onions, carrots, celery, mushrooms, potatoes, and garlic. Season with salt. Stir everything together and bring to a simmer.
 
